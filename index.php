@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+    <title>Integration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -69,81 +69,77 @@
                             
                             <div id="police-form">
                             	<div class="form-group">
-									<input id="p-s-name" type="text" name="loginUsername" required="" class="input-material">
+									<input id="p-s-name" type="text" name="p-s-name" required="" class="input-material">
 									<label for="login-username" class="label-material">Police Station Name</label>
 								</div>
                            		<div class="form-group">
-									<input id="p-s-pincode-area" type="text" name="loginUsername" required="" class="input-material">
+									<input id="p-s-pincode-area" type="text" name="p-s-pincode-area" required="" class="input-material">
 									<label for="login-username" class="label-material">Police Station Pincode</label>
 								</div>
                            		<div class="form-group">
-									<input id="p-s-emailid" type="text" name="loginUsername" required="" class="input-material">
+									<input id="p-s-emailid" type="text" name="p-s-emailid" required="" class="input-material">
 									<label for="login-username" class="label-material">Police Station Email ID</label>
 								</div>
                            		<div class="form-group">
-									<input id="p-s-phone" type="text" name="loginUsername" required="" class="input-material">
+									<input id="p-s-phone" type="text" name="p-s-phone" required="" class="input-material">
 									<label for="login-username" class="label-material">Police Station Phone Number</label>
 								</div>
                            		<div class="form-group">
-									<input id="p-s-pass" type="password" name="loginUsername" required="" class="input-material">
+									<input id="p-s-pass" type="password" name="p-s-pass" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password</label>
 								</div>
                            		<div class="form-group">
-									<input id="p-s-pass-conform" type="password" name="loginUsername" required="" class="input-material">
+									<input id="p-s-pass-conform" type="password" name="p-s-pass-conform" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password to Conform</label>
 								</div>
                             </div>
                             
                             <div id="rto-form">
                             	<div class="form-group">
-									<input id="rto-name" type="text" name="loginUsername" required="" class="input-material">
+									<input id="rto-name" type="text" name="rto-name" required="" class="input-material">
 									<label for="login-username" class="label-material">RTO Name</label>
 								</div>
                            		<div class="form-group">
-									<input id="rto-pincode-area" type="text" name="loginUsername" required="" class="input-material">
-									<label for="login-username" class="label-material">RTO Pincode</label>
-								</div>
-                           		<div class="form-group">
-									<input id="rto-emailid" type="text" name="loginUsername" required="" class="input-material">
+									<input id="rto-emailid" type="text" name="rto-emailid" required="" class="input-material">
 									<label for="login-username" class="label-material">RTO Email ID</label>
 								</div>
                            		<div class="form-group">
-									<input id="rto-phone" type="text" name="loginUsername" required="" class="input-material">
+									<input id="rto-phone" type="text" name="rto-phone" required="" class="input-material">
 									<label for="login-username" class="label-material">RTO Phone Number</label>
 								</div>
                            		<div class="form-group">
-									<input id="rto-pass" type="password" name="loginUsername" required="" class="input-material">
+									<input id="rto-pass" type="password" name="rto-pass" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password</label>
 								</div>
                            		<div class="form-group">
-									<input id="rto-pass-conform" type="password" name="loginUsername" required="" class="input-material">
+									<input id="rto-pass-conform" type="password" name="rto-pass-conform" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password to Conform</label>
 								</div>
                             </div>
                             
                             <div id="insurance-form">
                             	<div class="form-group">
-									<input id="i-c-name" type="text" name="loginUsername" required="" class="input-material">
+									<input id="i-c-name" type="text" name="i-c-name" required="" class="input-material">
 									<label for="login-username" class="label-material">Company Name</label>
 								</div>
                            		<div class="form-group">
-									<input id="i-c-code" type="text" name="loginUsername" required="" class="input-material">
+									<input id="i-c-code" type="text" name="i-c-code" required="" class="input-material">
 									<label for="login-username" class="label-material">CompanCompanyegistration Code</label>
 								</div>
                            		<div class="form-group">
-									<input id="i-c-emailid" type="text" name="loginUsername" required="" class="input-material">
+									<input id="i-c-emailid" type="text" name="i-c-emailid" required="" class="input-material">
 									<label for="login-username" class="label-material">Company Email ID</label>
 								</div>
                            		<div class="form-group">
-									<input id="i-c-phone" type="text" name="loginUsername" required="" class="input-material">
+									<input id="i-c-phone" type="text" name="i-c-phone" required="" class="input-material">
 									<label for="login-username" class="label-material">Company Phone Number</label>
 								</div>
                            		<div class="form-group">
-									<input id="i-c-pass" type="password" name="loginUsername" required="" class="input-material">
+									<input id="i-c-pass" type="password" name="i-c-pass" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password</label>
 								</div>
                            		<div class="form-group">
-									<input id="i-c-pass-conform" type="password" name="loginUsername" required="" class="input-material">
+									<input id="i-c-pass-conform" type="password" name="i-c-pass-conform" required="" class="input-material">
 									<label for="login-username" class="label-material">Enter Password to Conform</label>
 								</div>
                             </div>
