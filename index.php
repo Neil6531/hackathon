@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -41,11 +40,11 @@
                 <div class="content">
                   <form id="login-form" method="post">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
+                      <input id="login-username" type="text" name="loginUsername" class="input-material">
                       <label for="login-username" class="label-material">User Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
+                      <input id="login-password" type="password" name="loginPassword" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
                     </div><a id="login" href="index.html" class="btn btn-primary">Login</a>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
@@ -54,104 +53,113 @@
               </div>
             </div>
             <div class="col-lg-6 bg-white" id="registration-form">
-              <div class="form d-flex align-items-center">
-                <div class="content">
-                  <form id="login-form" method="post">
-                    <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Type</label>
-                          <div class="col-sm-9 select">
-                            <select name="user-type" class="form-control" id="user-type">
-                              <option value="0">Select</option>
-                              <option value="1">Police</option>
-                              <option value="2">RTO</option>
-                              <option value="3">Insurance Company</option>
-                            </select>
-                            
-                            <div id="police-form">
-                            	<div class="form-group">
-									<input id="p-s-name" type="text" name="p-s-name" required="" class="input-material">
-									<label for="login-username" class="label-material">Police Station Name</label>
-								</div>
-                           		<div class="form-group">
-									<input id="p-s-pincode-area" type="text" name="p-s-pincode-area" required="" class="input-material">
-									<label for="login-username" class="label-material">Police Station Pincode</label>
-								</div>
-                           		<div class="form-group">
-									<input id="p-s-emailid" type="text" name="p-s-emailid" required="" class="input-material">
-									<label for="login-username" class="label-material">Police Station Email ID</label>
-								</div>
-                           		<div class="form-group">
-									<input id="p-s-phone" type="text" name="p-s-phone" required="" class="input-material">
-									<label for="login-username" class="label-material">Police Station Phone Number</label>
-								</div>
-                           		<div class="form-group">
-									<input id="p-s-pass" type="password" name="p-s-pass" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password</label>
-								</div>
-                           		<div class="form-group">
-									<input id="p-s-pass-conform" type="password" name="p-s-pass-conform" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password to Conform</label>
-								</div>
-                            </div>
-                            
-                            <div id="rto-form">
-                            	<div class="form-group">
-									<input id="rto-name" type="text" name="rto-name" required="" class="input-material">
-									<label for="login-username" class="label-material">RTO Name</label>
-								</div>
-                           		<div class="form-group">
-									<input id="rto-emailid" type="text" name="rto-emailid" required="" class="input-material">
-									<label for="login-username" class="label-material">RTO Email ID</label>
-								</div>
-                           		<div class="form-group">
-									<input id="rto-phone" type="text" name="rto-phone" required="" class="input-material">
-									<label for="login-username" class="label-material">RTO Phone Number</label>
-								</div>
-                           		<div class="form-group">
-									<input id="rto-pass" type="password" name="rto-pass" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password</label>
-								</div>
-                           		<div class="form-group">
-									<input id="rto-pass-conform" type="password" name="rto-pass-conform" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password to Conform</label>
-								</div>
-                            </div>
-                            
-                            <div id="insurance-form">
-                            	<div class="form-group">
-									<input id="i-c-name" type="text" name="i-c-name" required="" class="input-material">
-									<label for="login-username" class="label-material">Company Name</label>
-								</div>
-                           		<div class="form-group">
-									<input id="i-c-code" type="text" name="i-c-code" required="" class="input-material">
-									<label for="login-username" class="label-material">CompanCompanyegistration Code</label>
-								</div>
-                           		<div class="form-group">
-									<input id="i-c-emailid" type="text" name="i-c-emailid" required="" class="input-material">
-									<label for="login-username" class="label-material">Company Email ID</label>
-								</div>
-                           		<div class="form-group">
-									<input id="i-c-phone" type="text" name="i-c-phone" required="" class="input-material">
-									<label for="login-username" class="label-material">Company Phone Number</label>
-								</div>
-                           		<div class="form-group">
-									<input id="i-c-pass" type="password" name="i-c-pass" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password</label>
-								</div>
-                           		<div class="form-group">
-									<input id="i-c-pass-conform" type="password" name="i-c-pass-conform" required="" class="input-material">
-									<label for="login-username" class="label-material">Enter Password to Conform</label>
-								</div>
-                            </div>
-                            
-                          </div>
-					  </div>
-                    <a id="login" href="index.html" class="btn btn-primary">registration</a>
-                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do you have an account already? </small><a role="button" class="signup" id="login-button" style="cursor: pointer">Login</a>
-                </div>
-              </div>
+    <div class="form d-flex align-items-center">
+        <div class="content">
+            <label class="col-sm-3 form-control-label">Type</label>
+            <div class="col-sm-9 select">
+                <select name="user-type" class="form-control" id="user-type">
+                    <option value="0">Select</option>
+                    <option value="1">Police</option>
+                    <option value="2">RTO</option>
+                    <option value="3">Insurance Company</option>
+                </select>
+
+                <form id="police-form" method="post" action="registration.php">
+                    <div class="form-group">
+                        <input id="p-s-name" type="text" name="p_s_name" class="input-material">
+                        <label for="p-s-name" class="label-material">Police Station Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material">
+                        <label for="p-s-pincode-area" class="label-material">Police Station Pincode</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="p-s-emailid" type="text" name="p_s_emailid" class="input-material">
+                        <label for="p-s-emailid" class="label-material">Police Station Email ID</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="p-s-phone" type="text" name="p_s_phone" class="input-material">
+                        <label for="p-s-phone" class="label-material">Police Station Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="p-s-pass" type="password" name="p_s_pass" class="input-material">
+                        <label for="p-s-pass" class="label-material">Enter Password</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="p-s-pass-confirm" type="password" name="p_s_pass_confirm" class="input-material">
+                        <label for="p-s-pass-confirm" class="label-material">Enter Password to Confirm</label>
+                    </div>
+                    <div class="form-group" id="type-police">
+                        <input id="police-type" type="text" name="type" class="input-material">
+                        <label for="police-type" class="label-material">type</label>
+                    </div>
+                    <button type="submit" id="police-reg" href="index.html" class="btn btn-primary">registration</button>
+                </form>
+
+                <form id="rto-form" method="post" action="registration.php">
+                    <div class="form-group">
+                        <input id="rto-name" type="text" name="rto_name" class="input-material">
+                        <label for="rto-name" class="label-material">RTO Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="rto-emailid" type="text" name="rto_emailid" class="input-material">
+                        <label for="rto-emailid" class="label-material">RTO Email ID</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="rto-phone" type="text" name="rto_phone" class="input-material">
+                        <label for="rto-phone" class="label-material">RTO Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="rto-pass" type="password" name="rto_pass" class="input-material">
+                        <label for="tro-pass" class="label-material">Enter Password</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="rto-pass-confirm" type="password" name="rto_pass_confirm" class="input-material">
+                        <label for="rto-pass-confirm" class="label-material">Enter Password to Confirm</label>
+                    </div>
+                    <div class="form-group" id="type-rto">
+                        <input id="rto-type" type="text" name="type" class="input-material">
+                        <label for="rto-type" class="label-material">type</label>
+                    </div>
+                    <button type="submit" id="rto-reg" href="index.html" class="btn btn-primary">registration</button>
+                </form>
+                <form id="insurance-form" method="post" action="registration.php">
+
+                    <div class="form-group">
+                        <input id="i-c-name" type="text" name="i_c_name" class="input-material">
+                        <label for="i-c-name" class="label-material">Company Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="i-c-code" type="text" name="i_c_code" class="input-material">
+                        <label for="i-c-code" class="label-material">CompanCompanyegistration Code</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="i-c-emailid" type="text" name="i_c_emailid" class="input-material">
+                        <label for="i-c-emailid" class="label-material">Company Email ID</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="i-c-phone" type="text" name="i_c_phone" class="input-material">
+                        <label for="i-c-phone" class="label-material">Company Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="i-c-pass" type="password" name="i_c_pass" class="input-material">
+                        <label for="i-c-pass" class="label-material">Enter Password</label>
+                    </div>
+                    <div class="form-group">
+                        <input id="i-c-pass-confirm" type="password" name="i_c_pass-confirm" class="input-material">
+                        <label for="i-c-pass-confirm" class="label-material">Enter Password to Confirm</label>
+                    </div>
+                    <div class="form-group" id="type-insurance">
+                        <input id="insurance-type" type="text" name="type" class="input-material">
+                        <label for="insurance-type" class="label-material">type</label>
+                    </div>
+                    <button type="submit" id="insurance-reg" href="index.html" class="btn btn-primary">registration</button>
+                </form>
+                <br><small>Do you have an account already? </small><a role="button" class="signup" id="login-button" style="cursor: pointer">Login</a>
             </div>
+        </div>
+    </div>
+</div>
           </div>
         </div>
       </div>
@@ -166,51 +174,14 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/custom.js"></script>
    	<script>
-		// JavaScript Document
-
 		$(document).ready(function(){
-			$("#login-form").show();
-			$("#registration-form").hide();
-			$("#registration-button").click(function(){
-				$("#login-form").hide();
-				$("#registration-form").show();
+			$('#police-reg').click(function(){
+				onclick('#rto-reg');
 			});
-			$("#login-button").click(function(){
-				$("#registration-form").hide();
-				$("#login-form").show();
-			});
+		});
 			
-			$("#rto-form").hide();
-			$("#insurance-form").hide();
-			$("#police-form").hide();
-			
-			$("#user-type").on('change',function(){
-				if(this.value == '1'){
-					$("#rto-form").hide(400);
-					$("#insurance-form").hide(400);
-					$("#police-form").show(400);
-				}
-				
-				else if(this.value == '2'){
-					$("#insurance-form").hide(400);
-					$("#police-form").hide(400);	
-					$("#rto-form").show(400);
-				}
-				
-				else if(this.value == '3'){
-					$("#police-form").hide(400);	
-					$("#rto-form").hide(400);
-					$("#insurance-form").show(400);
-				}
-				
-				else if(this.value == '0'){
-					$("#police-form").hide(400);	
-					$("#rto-form").hide(400);
-					$("#insurance-form").hide(400);
-				}
-			});
-		});  
 	</script>
   </body>
 </html>
