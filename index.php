@@ -166,8 +166,9 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
-    
-    <script>
+   	<script>
+		// JavaScript Document
+
 		$(document).ready(function(){
 			$("#login-form").show();
 			$("#registration-form").hide();
@@ -209,7 +210,7 @@
 					$("#insurance-form").hide(400);
 				}
 			});
-		});
+		});  
 	</script>
   </body>
 </html>
