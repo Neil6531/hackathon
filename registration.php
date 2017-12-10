@@ -8,16 +8,24 @@
 		$p_s_emailid= $_POST['p_s_emailid'];
 		$p_s_phone= $_POST['p_s_phone'];
 		$p_s_password= $_POST['p_s_pass'];
-		echo $p_s_name."   ";
-		echo $p_s_pincode."   ";
-		echo $p_s_emailid."   ";
-		echo $p_s_phone."   ";
-		echo $p_s_password."   "; 
-		echo $type;
+		
+		$sql_q = "insert into police (p_name,pin_code,e_mail,phone,password) values ('$p_s_name','$p_s_pincode','$p_s_emailid','$p_s_phone','$p_s_password')";
+		if($conn->query($sql_q) === TRUE)
+		{
+			?>
+			<script>alert("one item add");</script>
+			<?php
+		}
+		else
+		{
+			?>
+			<script>alert("NO");</script>
+			<?php
+		}
 	}
 	else if($type=='RTO')
 	{
-		echo"1";
+		
 	}
 	else if($type=='Insurance')
 	{

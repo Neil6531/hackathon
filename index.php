@@ -176,11 +176,6 @@
     <script src="js/front.js"></script>
     <script src="js/custom.js"></script>
    	<script>
-		$(document).ready(function(){
-			$('#police-reg').click(function(){
-				onclick('#rto-reg');
-			});
-		});
 			
 	</script>
   </body>
