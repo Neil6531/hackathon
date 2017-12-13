@@ -226,7 +226,7 @@ button, input {
 }
 
 .bg-violet {
-  background: #796AEE !important;
+  background: #3FAED5 !important;
   color: #fff;
 }
 
@@ -275,11 +275,11 @@ button, input {
 }
 
 .text-violet {
-  color: #796AEE;
+  color: #3FAED5;
 }
 
 .text-violet:hover {
-  color: #796AEE;
+  color: #3FAED5;
 }
 
 .text-blue {

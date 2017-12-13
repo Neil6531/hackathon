@@ -5,11 +5,11 @@ $(document).ready(function(){
 			$("#registration-form").hide();
 			$("#registration-button").click(function(){
 				$("#login-form").hide();
-				$("#registration-form").show();
+				$("#registration-form").fadeIn(1000);
 			});
 			$("#login-button").click(function(){
 				$("#registration-form").hide();
-				$("#login-form").show();
+				$("#login-form").fadeIn(1000);
 			});
 			
 			$("#rto-form").hide();
