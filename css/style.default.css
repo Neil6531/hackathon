@@ -1,18 +1,3 @@
-/*
-=========================================
-=========================================
-
-Bootstrap 4 Admin Template
-
-https://bootstrapious.com/p/admin-template
-
-=========================================
-========================================= */
-/*
-* ==========================================================
-*     GENERAL STYLES
-* ==========================================================
-*/
 body {
   overflow-x: hidden;
 }
@@ -1830,7 +1815,7 @@ section.forms .line {
   background: url(../img/bg.jpg);
   background-size: cover;
   -webkit-filter: blur(10px);
-  filter: blur(10px);
+  filter: blur(7px);
   z-index: 1;
   position: absolute;
   top: 0;

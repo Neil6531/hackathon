@@ -35,7 +35,11 @@
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big"><span>Integration</span></div>
+                  <div class="brand-text brand-big"><span><?php
+				  session_start();
+					echo "Welocme " . $_SESSION['user'];
+				  ?>
+				  </span></div>
                   <div class="brand-text brand-small"><strong>Integration</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
@@ -45,7 +49,7 @@
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                  
                 <!-- Logout    -->
-                <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="index.php" class="nav-link logout"<?php session_destroy();  ?>>Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>

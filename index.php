@@ -38,7 +38,7 @@
             <div class="col-lg-6 bg-white" id="login-form">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form id="login-form" method="post">
+                  <form id="login-form" method="post" action="login.php">
                     <div class="form-group">
                       <input id="login-username" type="text" name="loginUsername" class="input-material">
                       <label for="login-username" class="label-material">User Name</label>
@@ -46,7 +46,7 @@
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><a id="login" href="index.html" class="btn btn-primary">Login</a>
+                    </div><button class="btn btn-primary">Login</button>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">registration</a>
                 </div>
@@ -93,7 +93,7 @@
 									<input id="police-type" type="text" name="type" class="input-material">
 									<label for="police-type" class="label-material">type</label>
 								</div>
-								<a id="police-reg" class="btn btn-primary" style="color: #fff;">registration</a>
+								<a id="police-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">registration</a>
 							</form>
 
 
@@ -122,7 +122,7 @@
 									<input id="rto-type" type="text" name="type" class="input-material">
 									<label for="rto-type" class="label-material">type</label>
 								</div>
-								<a id="rto-reg" class="btn btn-primary" style="color: #fff;">Registration</a>
+								<a id="rto-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">Registration</a>
 							</form>
 							
 							<form id="insurance-form" method="post" action="registration.php">
@@ -155,7 +155,7 @@
 									<input id="insurance-type" type="text" name="type" class="input-material">
 									<label for="insurance-type" class="label-material">type</label>
 								</div>
-								<a id="insurance-reg" class="btn btn-primary" style="color: #fff;">registration</a>
+								<a id="insurance-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">registration</a>
 							</form>
 							<br><small>Do you have an account already? </small><a role="button" class="signup" id="login-button" style="cursor: pointer">Login</a>
 						</div>
@@ -164,9 +164,6 @@
 			</div>
           </div>
         </div>
-      </div>
-      <div class="copyrights text-center">
-        <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>
       </div>
     </div>
     <!-- Javascript files-->
@@ -192,9 +189,9 @@
 					url: "reg_police.php",
 					data: "p_s_name=" +name+ "&p_s_pincode_area=" +pincode+ "&p_s_phone=" +phone+ "&p_s_emailid=" +email+ "&p_s_pass=" +pass,
 					success: function(data){
-						alert("Registration sucessfully");
-						$("#login-form").show();
 						$("#registration-form").hide();
+						$("#login-form").fadeIn(500);
+						alert("Registration sucessfully");
 					}
 				});
 			});
@@ -210,9 +207,9 @@
 					url: "reg_rto.php",
 					data: "rto_name="+name+"&rto_emailid="+email+"&rto_phone="+phone+"&rto_pass="+password,
 					success: function(data){
-						alert("Registration sucessfully");
-						$("#login-form").show();
 						$("#registration-form").hide();
+						$("#login-form").fadeIn(500);
+						alert("Registration sucessfully");
 					}
 				});
 			});
@@ -232,10 +229,9 @@
 						if(data == "1"){
 							alert("12");
 						}
-						
-						alert("Registration sucessfully");
-						$("#login-form").show();
 						$("#registration-form").hide();
+						$("#login-form").fadeIn(500);
+						alert("Registration sucessfully");
 					}
 				});
 			});
