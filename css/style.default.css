@@ -428,12 +428,12 @@ nav.side-navbar ul a {
 
 nav.side-navbar ul a:hover {
   background: #3FAED5;
-  border-left: 4px solid #3b25e6;
+  border-left: 6px solid #00617A;
   color: #fff;
 }
 
 nav.side-navbar ul li.active a {
-  background: #EEF5F9;
+  background: #D1F0F1;
 }
 
 nav.side-navbar ul li.active a:hover {
@@ -1578,11 +1578,6 @@ section.charts div[class*="col-"] {
   background-color: #fff;
   border-color: #3FAED5;
   outline: none;
-}
-
-.form-control:focus {
-  -webkit-box-shadow: 0 0 0 3px rgba(121, 106, 238, 0.25);
-  box-shadow: 0 0 0 3px rgba(121, 106, 238, 0.25);
 }
 
 .form-control-label {

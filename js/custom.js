@@ -30,7 +30,7 @@ $(document).ready(function(){
 				}
 				
 				else if(this.value == '2'){
-					var type2 = "RTO";
+					var type2 = "rto";
 					$("#insurance-form").hide(400);
 					$("#police-form").hide(400);	
 					$("#rto-form").show(400);
@@ -38,7 +38,7 @@ $(document).ready(function(){
 				}
 				
 				else if(this.value == '3'){
-					var type3 = "Insurance";
+					var type3 = "insurance";
 					$("#police-form").hide(400);	
 					$("#rto-form").hide(400);
 					$("#insurance-form").show(400);

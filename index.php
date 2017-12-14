@@ -70,6 +70,10 @@
 									<label for="p-s-name" class="label-material">Police Station Name</label>
 								</div>
 								<div class="form-group">
+									<input id="p-name" type="text" name="p_name" class="input-material">
+									<label for="p-name" class="label-material">Enter Your Name</label>
+								</div>
+								<div class="form-group">
 									<input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material">
 									<label for="p-s-pincode-area" class="label-material">Police Station Pincode</label>
 								</div>
@@ -103,6 +107,10 @@
 									<label for="rto-name" class="label-material">RTO Name</label>
 								</div>
 								<div class="form-group">
+									<input id="rto-u-name" type="text" name="rto_u_name" class="input-material">
+									<label for="rto-u-name" class="label-material">Enter Your Name</label>
+								</div>
+								<div class="form-group">
 									<input id="rto-emailid" type="text" name="rto_emailid" class="input-material">
 									<label for="rto-emailid" class="label-material">RTO Email ID</label>
 								</div>
@@ -130,6 +138,10 @@
 								<div class="form-group">
 									<input id="i-c-name" type="text" name="i_c_name" class="input-material">
 									<label for="i-c-name" class="label-material">Company Name</label>
+								</div>
+								<div class="form-group">
+									<input id="i-c-u-name" type="text" name="rto_u_name" class="input-material">
+									<label for="i-c-u-name" class="label-material">Enter Your Name</label>
 								</div>
 								<div class="form-group">
 									<input id="i-c-code" type="text" name="i_c_code" class="input-material">
@@ -178,60 +190,84 @@
 		$(document).ready(function(){
 			$("#police-reg").click(function (){
 				var name = $("#p-s-name").val();
+				var u_name = $("#p-name").val();
 				var pincode = $("#p-s-pincode-area").val();
 				var phone = $("#p-s-phone").val();
 				var email = $("#p-s-emailid").val();
 				var pass = $("#p-s-pass").val();
 				var con_pass = $("#p-s-pass-confirm").val();
+				var u_type = $("#police-type").val();
 //				alert("data get");
 				$.ajax({
 					type: "POST",
-					url: "reg_police.php",
-					data: "p_s_name=" +name+ "&p_s_pincode_area=" +pincode+ "&p_s_phone=" +phone+ "&p_s_emailid=" +email+ "&p_s_pass=" +pass,
+					url: "reg.php",
+					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+pincode+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
 					success: function(data){
-						$("#registration-form").hide();
-						$("#login-form").fadeIn(500);
-						alert("Registration sucessfully");
+						if(data == "yes"){
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully...!");	
+						}
+						else{
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully..!");	
+						}
 					}
 				});
 			});
 			$("#rto-reg").click(function(){
 				var name = $("#rto-name").val();
+				var u_name = $("#rto-u-name").val();
 				var email = $("#rto-emailid").val();
 				var phone = $("#rto-phone").val();
 				var password = $("#rto-pass").val();
 				var con_pass = $("#rto-pass-confirm").val();
+				var u_type = $("#rto-type").val();
 //				alert("data are"+name+"_"+email+"_"+phone+"_"+password+"_"+ur_name);
 				$.ajax({
 					type:"POST",
-					url: "reg_rto.php",
-					data: "rto_name="+name+"&rto_emailid="+email+"&rto_phone="+phone+"&rto_pass="+password,
+					url: "reg.php",
+					data: "name="+u_name+"&org_name="+name+"&email="+email+"&phone="+phone+"&pass="+password+"&u_type="+u_type,
 					success: function(data){
-						$("#registration-form").hide();
-						$("#login-form").fadeIn(500);
-						alert("Registration sucessfully");
+						if(data == "yes"){
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully...!");	
+						}
+						else{
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully..!");	
+						}
 					}
 				});
 			});
 			$("#insurance-reg").click(function(){
 				var name = $("#i-c-name").val();
+				var u_name = $("#i-c-u-name").val();
 				var code = $("#i-c-code").val();
 				var email = $("#i-c-emailid").val();
 				var phone = $("#i-c-phone").val();
 				var pass = $("#i-c-pass").val();
 				var con_pass = $("#i-c-pass-confirm").val();
-				alert(""+name+" "+code+" "+email+" "+phone+" "+pass+" "+pass)
+				var u_type = $("#insurance-type").val();
+//				alert(""+name+" "+code+" "+email+" "+phone+" "+pass+" "+pass)
 				$.ajax({
 					type: "POST",
-					url: "reg_i_c.php",
-					data: "i_c_name="+name+"&i_c_code="+code+"&i_c_emailid="+email+"&i_c_phone="+phone+"&i_c_pass="+pass,
+					url: "reg.php",
+					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
 					success: function(data){
 						if(data == "1"){
-							alert("12");
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully...!");	
 						}
-						$("#registration-form").hide();
-						$("#login-form").fadeIn(500);
-						alert("Registration sucessfully");
+						else{
+							$("#registration-form").hide();
+							$("#login-form").fadeIn(500);
+							alert("Registration sucessfully..!");	
+						}
 					}
 				});
 			});
