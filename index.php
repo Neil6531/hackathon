@@ -1,8 +1,19 @@
 
 <?php
-if(isset($_COOKIE['user']))
+if(isset($_COOKIE['user'] ))
 {
-	header("location:index1.html");
+	if($_COOKIE['usertype'] == 'police')
+		 {
+			 header("location:user_police_login.php");
+		 }
+	else if($_COOKIE['usertype'] == 'RTO')
+		 {
+			 header("location:user_rto_login.php");
+		 }
+	else if($_COOKIE['usertype'] == 'Insurance')
+		 {
+			 header("location:user_insurance_login.php");
+		 }
 }
 
 ?>
