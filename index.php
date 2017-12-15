@@ -1,3 +1,11 @@
+
+<?php
+if(isset($_COOKIE['user']))
+{
+	header("location:index1.html");
+}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,7 +54,7 @@
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><button class="btn btn-primary">Login</button>
+                    </div><button class="btn btn-primary" name="login">Login</button>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">registration</a>
                 </div>
