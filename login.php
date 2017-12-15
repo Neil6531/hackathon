@@ -12,7 +12,7 @@ if(isset($_POST['login']))
 	{	
 		$row=mysqli_fetch_array($result);
 		$type=$row['u_type'];
-		 $cookie_value= $user  ;
+		$cookie_value= $user;
 		setcookie("user", $cookie_value, time() + 3600);
 		setcookie("usertype", $type, time() + 3600);
 		

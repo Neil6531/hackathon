@@ -1,6 +1,3 @@
-<!--data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,-->
-
-
 <?php
 	include('db_connect.php');
 	$name = $_POST['name'];
@@ -14,7 +11,7 @@
 	$sql_q="INSERT INTO users (`name`, `org_name`, `org_reg_no`, `phone`, `email`, `pass`, `u_type`) VALUES ('$name', '$org_name', '$org_reg_name', '$phone', '$email', '$pass', '$u_type');";
 	if($conn->query($sql_q) === TRUE)
 	{
-		echo("1");	
+		echo("yes");	
 	}
 	else
 	{

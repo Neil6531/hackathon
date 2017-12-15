@@ -219,7 +219,7 @@ if(isset($_COOKIE['user']))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration Failed..!");	
 						}
 					}
 				});
@@ -238,6 +238,7 @@ if(isset($_COOKIE['user']))
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&email="+email+"&phone="+phone+"&pass="+password+"&u_type="+u_type,
 					success: function(data){
+						alert(data)
 						if(data == "yes"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
@@ -246,7 +247,7 @@ if(isset($_COOKIE['user']))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration Failed..!");	
 						}
 					}
 				});
@@ -266,7 +267,7 @@ if(isset($_COOKIE['user']))
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
 					success: function(data){
-						if(data == "1"){
+						if(data == "yes"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
 							alert("Registration sucessfully...!");	
@@ -274,7 +275,7 @@ if(isset($_COOKIE['user']))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration Failed..!");	
 						}
 					}
 				});
