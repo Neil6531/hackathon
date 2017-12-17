@@ -3,14 +3,14 @@
 session_start();
 $a = isset($_SESSION["type"]);
 $u_type=($_SESSION["type"]);
+$type=0;
 if($u_type == 'police'){$type=1;}
 if($u_type == 'rto'){$type=2;}
 if($u_type == 'insurance'){$type=3;}
 ?>
 <script>
-		var a = <?php echo($a) ?>;
 		var u_type = <?php echo($type)?>;
-		if(a == 1 && u_type != 3)
+		if(u_type != 3)
 		{
 			window.location = "index.php";
 		}
@@ -101,7 +101,7 @@ if($u_type == 'insurance'){$type=3;}
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4"><?php echo ($_SESSION['u_name']); ?></h1>
+              <h1 class="h4"><?php echo ($_SESSION['name']); ?></h1>
               <p><?php echo ($_SESSION['org']); ?></p>
             </div>
           </div>

@@ -3,14 +3,14 @@
 session_start();
 $a = isset($_SESSION["type"]);
 $u_type=($_SESSION["type"]);
+$type=0;
 if($u_type == 'police'){$type=1;}
 if($u_type == 'rto'){$type=2;}
 if($u_type == 'insurance'){$type=3;}
 ?>
 <script>
-		var a = <?php echo($a) ?>;
 		var u_type = <?php echo($type)?>;
-		if(a == 1 && u_type != 1)
+		if(u_type != 1)
 		{
 			window.location = "index.php";
 		}
