@@ -1,46 +1,29 @@
-
 <?php
 include('db_connect.php');
+session_start();
+$user=$_POST['loginUsername'];
+$pass=$_POST['loginPassword'];
+$query="select id,name,org_name,email,pass,u_type from users where email='$user' AND pass='$pass'";
+$result=mysqli_query($conn,$query);
+$count=mysqli_num_rows($result);
+if($count == 1)
+{	
+	$row=mysqli_fetch_array($result);
+	$type=$row['u_type'];
+	$name=$row['name'];
+	$id=$row['id'];
+	$org=$row['org_name'];
 
-if(isset($_POST['login']))
+	$_SESSION["name"]=$name;
+	$_SESSION["type"]=$type;
+	$_SESSION["id"]=$id;
+	$_SESSION["org"]=$org;
+
+	if($type=="police"){?><script>window.location = "police_index.php";</script><?php }
+	else if($type=="rto"){?><script>window.location = "rto_index.php";</script><?php }
+	else if($type=="insurance"){?><script>window.location = "insurance_index.php";</script><?php }
+}else
 {
-	$user=$_POST['loginUsername'];
-	$pass=$_POST['loginPassword'];
-	 $query="select email,pass,u_type from users where email='$user' AND pass='$pass'";
-	$result=mysqli_query($conn,$query);
-	 $count=mysqli_num_rows($result);
-	if($count == 1)
-	{	
-		 $query2="select name from users where email='$user' && pass='$pass'";
-		$result1=mysqli_query($conn,$query2);
-		$row1=mysqli_fetch_array($result1);
-		 $cookie_value=$row1['name'];
-		
-		$row=mysqli_fetch_array($result);
-		echo  $type=$row['u_type'];
-		
-		setcookie("user", $cookie_value, time() + 3600);
-		setcookie("usertype", $type, time() + 3600);
-		 
-		 if($type == 'police')
-		 {
-			 header("location:user_police_login.php");
-		 }
-		 else if($type == 'RTO')
-		 {
-			 header("location:user_rto_login.php");
-		 }
-		 else if($type == 'Insurance')
-		 {
-			 header("location:user_insurance_login.php");
-		 }
-		 
-	}else
-	{
-			echo "<script>alert('invalid UserName and Password')</script>";
-			header("location:index.php");
-	}
-	
+	?><script>window.location = "index.php";</script><?php
 }
-$conn->close();
-
+?>

@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<?php
+session_start();
+$a = isset($_SESSION["type"]);
+$u_type=($_SESSION["type"]);
+if($u_type == 'police'){$type=1;}
+if($u_type == 'rto'){$type=2;}
+if($u_type == 'insurance'){$type=3;}
+?>
+<script>
+		var a = <?php echo($a) ?>;
+		var u_type = <?php echo($type)?>;
+		if(a == 1 && u_type != 3)
+		{
+			window.location = "index.php";
+		}
+		else{header.location("location:insurance_index.php");}
+</script>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -35,7 +53,7 @@
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big"><span>Integration</span></div>
+                  <div class="brand-text brand-big"><span>Integration Incs</span></div>
                   <div class="brand-text brand-small"><strong>Integration</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
@@ -70,7 +88,7 @@
                   </ul>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -83,8 +101,8 @@
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-              <h1 class="h4">Mark Stephen</h1>
-              <p>Web Designer</p>
+              <h1 class="h4"><?php echo ($_SESSION['u_name']); ?></h1>
+              <p><?php echo ($_SESSION['org']); ?></p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>

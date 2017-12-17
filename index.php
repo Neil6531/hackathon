@@ -1,28 +1,28 @@
-
-<?php
-if(isset($_COOKIE['user'] ))
-{
-	if($_COOKIE['usertype'] == 'police')
-		 {
-			 header("location:user_police_login.php");
-		 }
-	else if($_COOKIE['usertype'] == 'RTO')
-		 {
-			 header("location:user_rto_login.php");
-		 }
-	else if($_COOKIE['usertype'] == 'Insurance')
-		 {
-			 header("location:user_insurance_login.php");
-		 }
-}
-
-?>
 <!DOCTYPE html>
+<?php
+session_start();
+$a = isset($_SESSION["type"]);
+$u_type=($_SESSION["type"]);
+if($u_type == 'police'){$type=1;}
+if($u_type == 'rto'){$type=2;}
+if($u_type == 'insurance'){$type=3;}
+?>
+<script>
+		var a = <?php echo($a) ?>;
+		var u_type = <?php echo($type)?>;
+		if(a == 1)
+		{
+			if(u_type == 1){window.location = "police_index.php";}
+			else if(u_type == 2){window.location = "rto_index.php";}
+			else if(u_type == 3){window.location = "insurance_index.php";}
+		}
+		else{header.location("location:index.php");}
+</script>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Integratio</title>
+    <title>Integration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -65,7 +65,7 @@ if(isset($_COOKIE['user'] ))
                     <div class="form-group">
                       <input id="login-password" type="password" name="loginPassword" class="input-material">
                       <label for="login-password" class="label-material">Password</label>
-                    </div><button class="btn btn-primary" name="login">Login</button>
+                    </div><button class="btn btn-primary">Login</button>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">registration</a>
                 </div>
@@ -230,7 +230,7 @@ if(isset($_COOKIE['user'] ))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration Failed..!");	
+							alert("Registration sucessfully..!");	
 						}
 					}
 				});
@@ -249,7 +249,6 @@ if(isset($_COOKIE['user'] ))
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&email="+email+"&phone="+phone+"&pass="+password+"&u_type="+u_type,
 					success: function(data){
-						alert(data)
 						if(data == "yes"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
@@ -258,7 +257,7 @@ if(isset($_COOKIE['user'] ))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration Failed..!");	
+							alert("Registration sucessfully..!");	
 						}
 					}
 				});
@@ -278,7 +277,7 @@ if(isset($_COOKIE['user'] ))
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
 					success: function(data){
-						if(data == "yes"){
+						if(data == "1"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
 							alert("Registration sucessfully...!");	
@@ -286,7 +285,7 @@ if(isset($_COOKIE['user'] ))
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration Failed..!");	
+							alert("Registration sucessfully..!");	
 						}
 					}
 				});
