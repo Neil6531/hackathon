@@ -1,5 +1,6 @@
 // JavaScript Document
 
+
 $(document).ready(function(){
 			$("#login-form").show();
 			$("#registration-form").hide();

@@ -32,12 +32,15 @@ if($u_type == 'insurance'){$type=3;}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="img/logo.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
     <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
