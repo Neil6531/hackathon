@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test</title>
+<title>GIT HUB AND SLACK TEST</title>
 </head>
 
 <body>
