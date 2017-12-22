@@ -14,6 +14,12 @@ if($u_type == 'insurance'){$type=3;}
             window.location = "index.php";
         }
     </script>
+<?php
+include('db_connect.php');
+$qry=mysqli_query($conn,"select fir_no from police_fir ORDER BY fir_no desc");
+$get=mysqli_fetch_array($qry);
+$c_id=$get['fir_no'];
+?>
     <html>
 
     <head>
@@ -166,7 +172,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">FIR No.</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fir_no">
+                            <input type="text" class="form-control" id="fir_no" value="<? echo $n_id=$c_id+1; ?>" readonly>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -174,7 +180,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Police Station Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="p_s_name">
+                            <input type="text" value="<? echo ($_SESSION['org']); ?> Police Station" class="form-control" id="p_s_name" readonly>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -182,7 +188,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">District</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="district">
+                            <input type="text" class="form-control" id="district" value="<? echo($_SESSION['district']); ?>" readonly>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -190,7 +196,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Date</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fir_date">
+                            <input type="text" class="form-control" id="fir_date" value="<? echo (date("d/m/Y")); ?>" readonly>
                           </div>
                         </div>
                         <div class="line"></div>

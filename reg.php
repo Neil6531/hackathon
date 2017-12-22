@@ -10,8 +10,9 @@
 	$phone = $_POST['phone'];
 	$pass = $_POST['pass'];
 	$u_type = $_POST['u_type'];
+	$district = $_POST['district'];
 	
-	$sql_q="INSERT INTO users (`name`, `org_name`, `org_reg_no`, `phone`, `email`, `pass`, `u_type`) VALUES ('$name', '$org_name', '$org_reg_name', '$phone', '$email', '$pass', '$u_type');";
+	$sql_q="INSERT INTO users (`name`, `org_name`, `org_reg_no`, `phone`, `email`, `pass`, `u_type`, `district`) VALUES ('$name', '$org_name', '$org_reg_name', '$phone', '$email', '$pass', '$u_type','$district');";
 	if($conn->query($sql_q) === TRUE)
 	{
 		echo("1");	

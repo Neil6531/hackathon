@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
 session_start();
-$a = isset($_SESSION["type"]);
+$a=0;
 $u_type=($_SESSION["type"]);
-if($u_type == 'police'){$type=1;}
-if($u_type == 'rto'){$type=2;}
-if($u_type == 'insurance'){$type=3;}
+if($u_type == 'police'){$type=1;$a=1;}
+if($u_type == 'rto'){$type=2;$a=1;}
+if($u_type == 'insurance'){$type=3;$a=1;}
 ?>
 <script>
 		var a = <?php echo($a) ?>;
@@ -94,6 +94,10 @@ if($u_type == 'insurance'){$type=3;}
 								<div class="form-group">
 									<input id="p-name" type="text" name="p_name" class="input-material">
 									<label for="p-name" class="label-material">Enter Your Name</label>
+								</div>
+								<div class="form-group">
+									<input id="district" type="text" name="p_s_pincode_area" class="input-material">
+									<label for="district" class="label-material">Police Station District</label>
 								</div>
 								<div class="form-group">
 									<input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material">
@@ -213,6 +217,7 @@ if($u_type == 'insurance'){$type=3;}
 			$("#police-reg").click(function (){
 				var name = $("#p-s-name").val();
 				var u_name = $("#p-name").val();
+				var district = $("#district").val();
 				var pincode = $("#p-s-pincode-area").val();
 				var phone = $("#p-s-phone").val();
 				var email = $("#p-s-emailid").val();
@@ -223,7 +228,7 @@ if($u_type == 'insurance'){$type=3;}
 				$.ajax({
 					type: "POST",
 					url: "reg.php",
-					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+pincode+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
+					data: "name="+u_name+"&org_name="+name+"&district="+district+"&org_reg_no="+pincode+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
 					success: function(data){
 						if(data == "yes"){
 							$("#registration-form").hide();
