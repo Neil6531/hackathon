@@ -122,7 +122,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="title">
                             <h1 class="h4"><?php echo ($_SESSION['name']); ?></h1>
                             <p>
-                                <?php echo ($_SESSION['org']); ?>
+                                <?php echo ($_SESSION['org']); ?> Police Station
                             </p>
                         </div>
                     </div>
@@ -158,7 +158,7 @@ if($u_type == 'insurance'){$type=3;}
                       </div>
                     </div>
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">All form elements</h3>
+                      <h3 class="h4">FIR</h3>
                     </div>
                     <div class="card-body">
                       <form class="form-horizontal">
@@ -190,7 +190,7 @@ if($u_type == 'insurance'){$type=3;}
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Date</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="date">
+                            <input type="text" class="form-control" id="fir_date">
                           </div>
                         </div>
                         <div class="line"></div>
@@ -307,20 +307,12 @@ if($u_type == 'insurance'){$type=3;}
                         </div>
                         <div class="line"></div>
                         
-                        <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Particulars Of The Property</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="time_occurrence">
-                          </div>
-                        </div>
-                        <div class="line"></div>
-                        
                         <br><h3><strong>5. Description Of The Accused:</strong></h3><br>
                         
                         <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Description</label>
                           <div class="col-sm-9">
-							  <textarea class="form-control" id="time_occurrence" rows="10"></textarea>
+							  <textarea class="form-control" id="description" rows="10"></textarea>
                           </div>
                         </div>
                         <div class="line"></div>
@@ -350,10 +342,10 @@ if($u_type == 'insurance'){$type=3;}
                           </div>
                         </div>
                         <div class="line"></div>
-                        
+						</form>
                         <br><center>
-                        	<button type="submit" class="btn btn-secondary">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                        <button id="reset_button" class="btn btn-secondary">Cancel</button>
+						<button id="submit_button" class="btn btn-primary">Save</button>
                         </center>
                         
                     </div>
@@ -386,6 +378,43 @@ if($u_type == 'insurance'){$type=3;}
         <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
         <script src="js/Chart.min.js"></script>
         <script src="js/front.js"></script>
+        <script>
+		$(document).ready(function(){
+			$("#submit_button").click(function(){
+				alert("data");
+				var fir_no = $("#fir_no").val();
+				var p_s_name = $("#p_s_name").val();
+				var district = $("#district").val();
+				var fir_date = $("#fir_date").val();
+				var p_name = $("#p_name").val();
+				var f_or_h_name = $("#f_or_h_name").val();
+				var p_address = $("#p_address").val();
+				var p_phone = $("#p_phone").val();
+				var email = $("#email").val();
+				var location_lati = $("#location_lati").val();
+				var location_long = $("#location_long").val();
+				var dist_form_p_s = $("#dist_form_p_s").val();
+				var direction_from_p_s = $("#direction_from_p_s").val();
+				var date_occurrence = $("#date_occurrence").val();
+				var time_occurrence = $("#time_occurrence").val();
+				var offence_nature = $("#offence_nature").val();
+				var section = $("#section").val();
+				var description = $("#description").val();
+				var witness_name = $("#witness_name").val();
+				var witness_address = $("#witness_address").val();
+				var witness_phone = $("#witness_phone").val();
+				$.ajax({
+					type: "POST",
+					url: "insert_police_fir.php",
+					data: "fir_no="+fir_no+"&p_s_name="+p_s_name+"&district="+district+"&fir_date="+fir_date+"&p_name="+p_name+"&f_or_h_name="+f_or_h_name+"&p_address="+p_address+"&p_phone="+p_phone+"&email="+email+"&location_lati="+location_lati+"&location_long="+location_long+"&dist_form_p_s="+dist_form_p_s+"&direction_from_p_s="+direction_from_p_s+"&date_occurrence="+date_occurrence+"&time_occurrence="+time_occurrence+"&offence_nature="+offence_nature+"&section="+section+"&description="+description+"&witness_name="+witness_name+"&witness_address="+witness_address+"&witness_phone="+witness_phone,
+					success: function(data){
+						if(data == "yes"){alert("sucessfully");}
+						else{alert("Sorry");}
+					}
+				});
+			});
+		});	
+		</script>
     </body>
 
     </html>

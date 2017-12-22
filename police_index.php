@@ -207,6 +207,37 @@ if($u_type == 'insurance'){$type=3;}
                             </div>
                         </div>
                     </div>
+                    
+                    
+                    <section class="projects no-padding-top">
+						<div class="container-fluid">
+						  <!-- Project-->
+						  <div class="project">
+							<div class="row bg-white has-shadow">
+							  <div class="left-col col-lg-1 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4"><center>1.</center></h3>
+								  </div>
+								</div>
+							  </div>
+							  <div class="left-col col-lg-5 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4">Victiom Name</h3><small>Accident</small>
+								  </div>
+								</div>
+								<div class="project-date"><span class="hidden-sm-down">Today at 4:24 AM</span></div>
+							  </div>
+							  <div class="right-col col-lg-6 d-flex align-items-center">
+								<div class="time"><i class="fa fa-clock-o"></i>12:00 PM </div>
+								<div class="comments"><i class="fa fa-map-pin"></i>Address</div>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </section>
+                    
 
                     <section class="updates no-padding-top">
                         <div class="container-fluid">
