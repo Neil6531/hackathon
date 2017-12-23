@@ -285,11 +285,6 @@ $c_id=$get['fir_no'];
                                                 function i() {
                                                     o.classList.contains("open") && s()
                                                 }
-                                                var o = t.getElementById("menu"),
-                                                    a = "onorientationchange" in e ? "orientationchange" : "resize";
-                                                t.getElementById("toggle").addEventListener("click", function() {
-                                                    s()
-                                                }), e.addEventListener(a, i)
                                             }(this, this.document);
                                         </script>
 
@@ -317,14 +312,13 @@ $c_id=$get['fir_no'];
                                                     marker.setPosition(e.latLng);
                                                     var t = e.latLng,
                                                         o = "(" + t.lat().toFixed(6) + ", " + t.lng().toFixed(6) + ")";
-                                                    infowindow.setContent(o), document.getElementById("lat").value = t.lat().toFixed(6), document.getElementById("lng").value = t.lng().toFixed(6), document.getElementById("latlngspan").innerHTML = o, document.getElementById("coordinatesurl").value = "https://www.latlong.net/c/?lat=" + t.lat().toFixed(6) + "&long=" + t.lng().toFixed(6), document.getElementById("coordinateslink").innerHTML = '&lt;a href="https://www.latlong.net/c/?lat=' + t.lat().toFixed(6) + "&amp;long=" + t.lng().toFixed(6) + '" target="_blank"&gt;(' + t.lat().toFixed(6) + ", " + t.lng().toFixed(6) + ")&lt;/a&gt;", dec2dms()
+                                                    infowindow.setContent(o), document.getElementById("lat").value = t.lat().toFixed(6), document.getElementById("lng").value = t.lng().toFixed(6)
                                                 }), google.maps.event.addListener(map, "mousemove", function(e) {
                                                     var t = e.latLng;
                                                 })
                                             }
 
                                             var latlongform = document.getElementById("aD2440");
-                                            latlongform.attachEvent ? latlongform.attachEvent("submit", codeAddress) : latlongform.addEventListener("submit", codeAddress);
                                             var map, geocoder, marker, infowindow;
 
                                             function dec2dms() {
@@ -347,13 +341,21 @@ $c_id=$get['fir_no'];
 
                                         <br>
                                         <strong><div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Distance From The Police Station</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="dist_form_p_s">
-                          </div>
-                        </div>
-                        <div class="line"></div></strong>
-
+										  <label class="col-sm-3 form-control-label">Distance From The Police Station</label>
+										  <div class="col-sm-9">
+											<input type="text" class="form-control" id="dist_form_p_s" readonly>
+										  </div>
+										</div>
+										<div class="line"></div></strong>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Address Of Occurrence</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="address_occurrence" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Direction From The Police Station</label>
                                             <div class="col-sm-9">
@@ -446,6 +448,7 @@ $c_id=$get['fir_no'];
                                     <center>
                                         <button id="reset_button" class="btn btn-secondary">Cancel</button>
                                         <button id="submit_button" class="btn btn-primary">Save</button>
+                                        <button id="call" class="btn btn-primary">call</button>
                                     </center>
 
                                 </div>
@@ -476,14 +479,31 @@ $c_id=$get['fir_no'];
             <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
             <script src="js/Chart.min.js"></script>
             <script src="js/front.js"></script>
-            <!--        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbVQgbehO-LyOm7mpXzYzVFz0LmO71mzg&callback=initMap"></script>-->
-
+			
             <script>
                 $(document).ready(function() {
-					
-					$.getJSON{
+					$("#latlongmap").click(function(){
+						var lat = $("#lat").val();
+						var lng = $("#lng").val();
 						
-					}
+						$.ajax({
+							type: "POST",
+							url: "map_distance.php",
+							data: "lat="+lat+"&lng="+lng,
+							success: function(data){
+								$("#dist_form_p_s").val(data);
+							}
+						});
+						
+						$.ajax({
+							type: "POST",
+							url: "map_address.php",
+							data: "lat="+lat+"&lng="+lng,
+							success: function(data){
+								$("#address_occurrence").val(data);
+							}
+						});
+					});
 					
                     $("#submit_button").click(function() {
                         alert("data");
@@ -508,10 +528,11 @@ $c_id=$get['fir_no'];
                         var witness_name = $("#witness_name").val();
                         var witness_address = $("#witness_address").val();
                         var witness_phone = $("#witness_phone").val();
+                        var address_occurrence = $("#address_occurrence").val();
                         $.ajax({
                             type: "POST",
                             url: "insert_police_fir.php",
-                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_form_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
+                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_form_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
                             success: function(data) {
                                 if (data == "yes") {
                                     alert("sucessfully");
