@@ -309,7 +309,7 @@ $c_id=$get['fir_no'];
                                                         overviewMapControlOptions: {
                                                             opened: !0
                                                         },
-                                                        mapTypeId: google.maps.MapTypeId.HYBRID
+                                                       
                                                     };
                                                 map = new google.maps.Map(document.getElementById("latlongmap"), t), geocoder = new google.maps.Geocoder, marker = new google.maps.Marker({
                                                     position: e,
