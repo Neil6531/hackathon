@@ -271,10 +271,7 @@ $c_id=$get['fir_no'];
                                         <div class="col-sm-10 offset-1">
                                         	<div id="latlongmap" style="height:450px;" readonly></div>
                                         </div>
-                                        
-                                        
-                                        <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Lat Long","alternateName":"Latitude and Longitude","url":"https://www.latlong.net/","sameAs":["https://plus.google.com/+LatlongNet","https://twitter.com/latlong_net"]}</script>
-
+ 
                                         <script>
                                             ! function(e, t) {
                                                 function n() {
@@ -483,6 +480,11 @@ $c_id=$get['fir_no'];
 
             <script>
                 $(document).ready(function() {
+					
+					$.getJSON{
+						
+					}
+					
                     $("#submit_button").click(function() {
                         alert("data");
                         var fir_no = $("#fir_no").val();
