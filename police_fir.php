@@ -8,17 +8,17 @@ if($u_type == 'police'){$type=1;}
 if($u_type == 'rto'){$type=2;}
 if($u_type == 'insurance'){$type=3;}
 ?>
-    <script>
-        var u_type = <?php echo($type)?>;
-        if (u_type != 1) {
-            window.location = "index.php";
-        }
-    </script>
-    <?php
-include('db_connect.php');
-$qry=mysqli_query($conn,"select fir_no from police_fir ORDER BY fir_no desc");
-$get=mysqli_fetch_array($qry);
-$c_id=$get['fir_no'];
+<script>
+	var u_type = <?php echo($type)?>;
+	if (u_type != 1) {
+		window.location = "index.php";
+	}
+</script>
+<?php
+	include('db_connect.php');
+	$qry=mysqli_query($conn,"select fir_no from police_fir ORDER BY fir_no desc");
+	$get=mysqli_fetch_array($qry);
+	$c_id=$get['fir_no'];
 ?>
         <html>
 
@@ -158,15 +158,7 @@ $c_id=$get['fir_no'];
                         <br>
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-close">
-                                    <div class="dropdown">
-                                        <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                        <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow">
-                                            <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
-                                            <a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="card-header d-flex align-items-center">
                                     <h3 class="h4">FIR</h3>
                                 </div>
@@ -268,31 +260,16 @@ $c_id=$get['fir_no'];
                                             </div>
                                         </div>
                                         <div class="line"></div>
-                                        <div class="col-sm-10 offset-1">
-                                        	<div id="latlongmap" style="height:450px;" readonly></div>
+                                        <div class="col-sm-12">
+                                        	<div id="latlongmap" style="height:450px; width: 100%" readonly></div>
+                                        	<center><small>To add address and distance form police station please select place in map.</small></center>
                                         </div>
- 
-                                        <script>
-                                            ! function(e, t) {
-                                                function n() {
-                                                    t.getElementById("navmenu").classList.toggle("list-vertical"), t.getElementsByTagName("header")[0].classList.toggle("open"), t.getElementsByTagName("body")[0].classList.toggle("open")
-                                                }
-
-                                                function s() {
-                                                    o.classList.contains("open") ? setTimeout(n, 500) : n(), o.classList.toggle("open"), t.getElementsByTagName("main")[0].classList.toggle("open")
-                                                }
-
-                                                function i() {
-                                                    o.classList.contains("open") && s()
-                                                }
-                                            }(this, this.document);
-                                        </script>
-
+                                        
                                         <script type="text/javascript">
                                             function initialize() {
-                                                var e = new google.maps.LatLng(23.019076, 72.564697),
+                                                var e = new google.maps.LatLng(22.998537, 72.602333),
                                                     t = {
-                                                        zoom: 7,
+                                                        zoom: 17,
                                                         center: e,
                                                         panControl: !0,
                                                         scrollwheel: !1,
@@ -351,7 +328,7 @@ $c_id=$get['fir_no'];
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Address Of Occurrence</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="address_occurrence" readonly>
+                                                <input type="text" class="form-control" id="address_occurrence">
                                             </div>
                                         </div>
                                         <div class="line"></div>
@@ -359,7 +336,7 @@ $c_id=$get['fir_no'];
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Direction From The Police Station</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="direction_from_p_s">
+                                                <input type="text" class="form-control" id="direction_from_p_s" readonly>
                                             </div>
                                         </div>
                                         <div class="line"></div>
@@ -448,7 +425,6 @@ $c_id=$get['fir_no'];
                                     <center>
                                         <button id="reset_button" class="btn btn-secondary">Cancel</button>
                                         <button id="submit_button" class="btn btn-primary">Save</button>
-                                        <button id="call" class="btn btn-primary">call</button>
                                     </center>
 
                                 </div>
@@ -485,7 +461,6 @@ $c_id=$get['fir_no'];
 					$("#latlongmap").click(function(){
 						var lat = $("#lat").val();
 						var lng = $("#lng").val();
-						
 						$.ajax({
 							type: "POST",
 							url: "map_distance.php",
@@ -503,10 +478,18 @@ $c_id=$get['fir_no'];
 								$("#address_occurrence").val(data);
 							}
 						});
+						
+						$.ajax({
+							type: "POST",
+							url: "map_direction.php",
+							data: "lat="+lat+"&lng="+lng,
+							success: function(data){
+								$("#direction_from_p_s").val(data);
+							}
+						});
 					});
 					
                     $("#submit_button").click(function() {
-                        alert("data");
                         var fir_no = $("#fir_no").val();
                         var p_s_name = $("#p_s_name").val();
                         var district = $("#district").val();
@@ -529,10 +512,11 @@ $c_id=$get['fir_no'];
                         var witness_address = $("#witness_address").val();
                         var witness_phone = $("#witness_phone").val();
                         var address_occurrence = $("#address_occurrence").val();
+						
                         $.ajax({
                             type: "POST",
                             url: "insert_police_fir.php",
-                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_form_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
+                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_from_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
                             success: function(data) {
                                 if (data == "yes") {
                                     alert("sucessfully");

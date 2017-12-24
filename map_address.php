@@ -1,7 +1,7 @@
 <?php
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
-$url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=22.998460,72.602416&destinations=".$lat."%2C".$lng."&key=AIzaSyCbVQgbehO-LyOm7mpXzYzVFz0LmO71mzg";
+$url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=22.998537,72.602333&destinations=".$lat."%2C".$lng."&key=AIzaSyCbVQgbehO-LyOm7mpXzYzVFz0LmO71mzg";
     //fetch json response from googleapis.com:
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);

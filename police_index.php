@@ -203,7 +203,7 @@ if($u_type == 'insurance'){$type=3;}
                                 <h3 class="h4">Accident Occured</h3>
                             </div>
                             <div class="card-body">
-                                <canvas id="accident" style="width: 100%; height: 20vh;"></canvas>
+                                <canvas id="accident" style="width: 100%; height: 350px;"></canvas>
                             </div>
                         </div>
                     </div>
