@@ -1,3 +1,29 @@
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(75,75,75,0.7);
+  z-index: 99999;
+}
+
+#text {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-image: url(../img/loader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -150px 0 0 -150px;
+}
+	
+
+
+
 #preloader {
   position: fixed;
   top: 0;

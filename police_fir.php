@@ -117,8 +117,15 @@ if($u_type == 'insurance'){$type=3;}
                                 </ul>
                             </div>
                         </div>
-                    </nav>
-                </header>
+                    </nav>     
+               </header>
+                
+                
+                <div id="loader">
+                	<div id="text">&nbsp;</div>
+            	</div>
+                
+                
                 <div class="page-content d-flex align-items-stretch">
                     <!-- Side Navbar -->
                     <nav class="side-navbar">
@@ -163,7 +170,7 @@ if($u_type == 'insurance'){$type=3;}
                                     <h3 class="h4">FIR</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" id="firform">
 
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">FIR No.</label>
@@ -458,6 +465,7 @@ if($u_type == 'insurance'){$type=3;}
 			
             <script>
                 $(document).ready(function() {
+					$("#loader").hide();
 					$("#latlongmap").click(function(){
 						var lat = $("#lat").val();
 						var lng = $("#lng").val();
@@ -517,12 +525,17 @@ if($u_type == 'insurance'){$type=3;}
                             type: "POST",
                             url: "insert_police_fir.php",
                             data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_from_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
-                            success: function(data) {
+                            beforeSend: function(){
+								$("#loader").show(1000);
+							},
+							success: function(data) {
                                 if (data == "yes") {
                                     alert("sucessfully");
                                 } else {
                                     alert("Sorry");
                                 }
+								$("#loader").hide();
+								$("#firform")[0].reset();
                             }
                         });
                     });
