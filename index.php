@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include('db_connect.php');
 session_start();
 $a=0;
 $u_type=($_SESSION["type"]);
@@ -18,6 +19,11 @@ if($u_type == 'insurance'){$type=3;$a=1;}
 		}
 		else{header.location("location:index.php");}
 </script>
+<?php
+$sql = "SELECT p_s_name FROM police_station_location";
+$result = mysqli_query($conn,$sql)or die(mysqli_error());
+?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -79,21 +85,33 @@ if($u_type == 'insurance'){$type=3;$a=1;}
 					<div class="content">
 						<label class="col-sm-3 form-control-label">Type</label>
 						<div class="col-sm-9 select">
+							
+							
 							<select name="user-type" class="form-control" id="user-type">
 								<option value="0">Select</option>
 								<option value="1">Police</option>
 								<option value="2">RTO</option>
 								<option value="3">Insurance Company</option>
 							</select>
-							<div id="error"></div>
+							 
+							 
 							<form id="police-form" method="post">
-								<div class="form-group">
-									<input id="p-s-name" type="text" name="p_s_name" class="input-material">
-									<label for="p-s-name" class="label-material">Police Station Name</label>
-								</div>
 								<div class="form-group">
 									<input id="p-name" type="text" name="p_name" class="input-material">
 									<label for="p-name" class="label-material">Enter Your Name</label>
+								</div>
+								<div class="form-group">
+									<select name="p-s-name" class="form-control" id="p-s-name">
+										<option>Select</option>
+										<?php
+										while($row = mysqli_fetch_array($result))
+										{
+											$p_s_name = $row['p_s_name'];
+											echo "<option value=".$p_s_name." class='text-capitalize'>".$p_s_name."</option>";
+										}
+										?>
+										<option value="" class="text-capitalize"></option>
+									</select>
 								</div>
 								<div class="form-group">
 									<input id="district" type="text" name="p_s_pincode_area" class="input-material">
@@ -214,6 +232,19 @@ if($u_type == 'insurance'){$type=3;$a=1;}
     <script src="js/custom.js"></script>
 	<script>
 		$(document).ready(function(){
+			
+			$("#p-s-name").on('change',function(){
+				var p_s_name = $("#p-s-name").val();
+				$.ajax({
+					type: "POST",
+					url: "select_district.php",
+					data: "p_s_name="+p_s_name,
+					success: function(data){
+						$("#district").val(data);
+					}
+				});
+			});
+			
 			$("#police-reg").click(function (){
 				var name = $("#p-s-name").val();
 				var u_name = $("#p-name").val();

@@ -19,7 +19,13 @@ if($u_type == 'insurance'){$type=3;}
 	$qry=mysqli_query($conn,"select fir_no from police_fir ORDER BY fir_no desc");
 	$get=mysqli_fetch_array($qry);
 	$c_id=$get['fir_no'];
+	
+	$p_s_lat= $_SESSION['p_s_lat'];
+	$p_s_lng= $_SESSION['p_s_lng'];
 ?>
+<script>
+	
+</script>
         <html>
 
         <head>
@@ -63,7 +69,7 @@ if($u_type == 'insurance'){$type=3;}
                                 <div class="navbar-header">
                                     <!-- Navbar Brand -->
                                     <a href="index.html" class="navbar-brand">
-                                        <div class="brand-text brand-big"><span>Integration Police</span></div>
+                                        <div class="brand-text brand-big"><span>Integration</span></div>
                                         <div class="brand-text brand-small">Integration</div>
                                     </a>
                                     <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -274,9 +280,11 @@ if($u_type == 'insurance'){$type=3;}
                                         
                                         <script type="text/javascript">
                                             function initialize() {
-                                                var e = new google.maps.LatLng(22.998537, 72.602333),
+												var p_s_lat_init = <?php echo($p_s_lat); ?>;
+												var p_s_lng_init = <?php echo($p_s_lng); ?>;
+                                                var e = new google.maps.LatLng(p_s_lat_init,p_s_lng_init),
                                                     t = {
-                                                        zoom: 17,
+                                                        zoom: 16,
                                                         center: e,
                                                         panControl: !0,
                                                         scrollwheel: !1,
@@ -466,9 +474,20 @@ if($u_type == 'insurance'){$type=3;}
             <script>
                 $(document).ready(function() {
 					$("#loader").hide();
+					
 					$("#latlongmap").click(function(){
 						var lat = $("#lat").val();
 						var lng = $("#lng").val();
+						
+						$.ajax({
+							type: "POST",
+							url: "map_direction.php",
+							data: "lat="+lat+"&lng="+lng,
+							success: function(data){
+								$("#direction_from_p_s").val(data);
+							}
+						});
+						
 						$.ajax({
 							type: "POST",
 							url: "map_distance.php",
@@ -484,15 +503,6 @@ if($u_type == 'insurance'){$type=3;}
 							data: "lat="+lat+"&lng="+lng,
 							success: function(data){
 								$("#address_occurrence").val(data);
-							}
-						});
-						
-						$.ajax({
-							type: "POST",
-							url: "map_direction.php",
-							data: "lat="+lat+"&lng="+lng,
-							success: function(data){
-								$("#direction_from_p_s").val(data);
 							}
 						});
 					});

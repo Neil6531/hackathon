@@ -20,6 +20,13 @@ if($count == 1)
 	$_SESSION["id"]=$id;
 	$_SESSION["org"]=$org;
 	$_SESSION["district"]=$district;
+	
+	$query = mysqli_query($conn,"select p_s_lat,p_s_lng from police_station_location where p_s_name='$org'");
+	$sql=mysqli_fetch_array($query);
+	$p_s_lat= $sql['p_s_lat'];
+	$p_s_lng= $sql['p_s_lng'];
+	$_SESSION["p_s_lat"]= $p_s_lat;
+	$_SESSION["p_s_lng"]= $p_s_lng;
 
 	if($type=="police"){?><script>window.location = "police_index.php";</script><?php }
 	else if($type=="rto"){?><script>window.location = "rto_index.php";</script><?php }
