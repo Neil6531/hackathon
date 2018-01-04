@@ -284,7 +284,7 @@ if($u_type == 'insurance'){$type=3;}
 												var p_s_lng_init = <?php echo($p_s_lng); ?>;
                                                 var e = new google.maps.LatLng(p_s_lat_init,p_s_lng_init),
                                                     t = {
-                                                        zoom: 16,
+                                                        zoom: 15,
                                                         center: e,
                                                         panControl: !0,
                                                         scrollwheel: !1,

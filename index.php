@@ -47,6 +47,9 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
+	<div id="loader">
+		<div id="text">&nbsp;</div>
+	</div>
     <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
@@ -233,6 +236,8 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 	<script>
 		$(document).ready(function(){
 			
+			$("#loader").hide();
+			
 			$("#p-s-name").on('change',function(){
 				var p_s_name = $("#p-s-name").val();
 				$.ajax({
@@ -260,16 +265,21 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 					type: "POST",
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&district="+district+"&org_reg_no="+pincode+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
+					beforeSend: function(){
+								$("#loader").show(1000);
+							},
 					success: function(data){
 						if(data == "yes"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully...!");	
+							alert("Registration sucessfully...!");
+							$("#loader").hide();
 						}
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration sucessfully..!");
+							$("#loader").hide();
 						}
 					}
 				});
@@ -287,16 +297,21 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 					type:"POST",
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&email="+email+"&phone="+phone+"&pass="+password+"&u_type="+u_type,
+					beforeSend: function(){
+								$("#loader").show(1000);
+							},
 					success: function(data){
 						if(data == "yes"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
 							alert("Registration sucessfully...!");	
+							$("#loader").hide();
 						}
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration sucessfully..!");
+							$("#loader").hide();
 						}
 					}
 				});
@@ -315,16 +330,21 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 					type: "POST",
 					url: "reg.php",
 					data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,
+					beforeSend: function(){
+								$("#loader").show(1000);
+							},
 					success: function(data){
 						if(data == "1"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully...!");	
+							alert("Registration sucessfully...!");
+							$("#loader").hide();
 						}
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");	
+							alert("Registration sucessfully..!");
+							$("#loader").hide();
 						}
 					}
 				});
