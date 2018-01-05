@@ -117,8 +117,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 									</select>
 								</div>
 								<div class="form-group">
-									<input id="district" type="text" name="p_s_pincode_area" class="input-material">
-									<label for="district" class="label-material">Police Station District</label>
+									<input id="district" type="text" name="p_s_pincode_area" class="input-material" placeholder="Police Station District" readonly>
 								</div>
 								<div class="form-group">
 									<input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material">
@@ -130,7 +129,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 								</div>
 								<div class="form-group">
 									<input id="p-s-phone" type="text" name="p_s_phone" class="input-material">
-									<label for="p-s-phone" class="label-material">Police Station Phone Number</label>
+									<label for="p-s-phone" class="label-material">Phone Number</label>
 								</div>
 								<div class="form-group">
 									<input id="p-s-pass" type="password" name="p_s_pass" class="input-material">
