@@ -130,7 +130,7 @@ if($u_type == 'insurance'){$type=3;}
                     <ul class="list-unstyled">
                         <li class="active"> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
                         <li><a href="police_fir.php"> <i class="icon-padnote"></i>FIR</a></li>
-                        <li><a href="login.html"> <i class="icon-interface-windows"></i>Form 54</a></li>
+                        <li><a href="police_form_54.php"> <i class="icon-interface-windows"></i>Form 54</a></li>
                         <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>View all accident case </a></li>
                     </ul>
                 </nav>

@@ -152,7 +152,7 @@ if($u_type == 'insurance'){$type=3;}
                                 <a href="police_fir.php"> <i class="icon-padnote"></i>FIR</a>
                             </li>
                             <li>
-                                <a href="login.html"> <i class="icon-interface-windows"></i>Form 54</a>
+                                <a href="police_form_54.php"> <i class="icon-interface-windows"></i>Form 54</a>
                             </li>
                             <li>
                                 <a href="charts.html"> <i class="fa fa-bar-chart"></i>View all accident case </a>
@@ -189,7 +189,7 @@ if($u_type == 'insurance'){$type=3;}
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Police Station Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" value="<? echo ($_SESSION['org']); ?> Police Station" class="form-control" id="p_s_name" readonly>
+                                                <input type="text" value="<? echo ($_SESSION['org']); ?>" class="form-control" id="p_s_name" readonly>
                                             </div>
                                         </div>
                                         <div class="line"></div>

@@ -20,7 +20,7 @@ if($u_type == 'insurance'){$type=3;$a=1;}
 		else{header.location("location:index.php");}
 </script>
 <?php
-$sql = "SELECT p_s_name FROM police_station_location";
+$sql = "SELECT p_s_name FROM police_station_location ORDER BY p_s_name";
 $result = mysqli_query($conn,$sql)or die(mysqli_error());
 ?>
 
@@ -104,7 +104,8 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 									<label for="p-name" class="label-material">Enter Your Name</label>
 								</div>
 								<div class="form-group">
-									<select name="p-s-name" class="form-control" id="p-s-name">
+									<label class="form-control-label">Select Police Station</label>
+									<select name="p-s-name" class="form-control col-sm-9" id="p-s-name">
 										<option>Select</option>
 										<?php
 										while($row = mysqli_fetch_array($result))
