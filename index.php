@@ -233,6 +233,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			
@@ -269,7 +270,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 								$("#loader").show(1000);
 							},
 					success: function(data){
-						if(data == "yes"){
+						if(data == "1"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
 							alert("Registration sucessfully...!");
@@ -278,7 +279,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 						else{
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
-							alert("Registration sucessfully..!");
+							alert("Registration unsucessfully..!");
 							$("#loader").hide();
 						}
 					}
@@ -301,7 +302,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 								$("#loader").show(1000);
 							},
 					success: function(data){
-						if(data == "yes"){
+						if(data == "1"){
 							$("#registration-form").hide();
 							$("#login-form").fadeIn(500);
 							alert("Registration sucessfully...!");	

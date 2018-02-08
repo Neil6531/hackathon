@@ -1,6 +1,3 @@
-<!--data: "name="+u_name+"&org_name="+name+"&org_reg_no="+code+"&email="+email+"&phone="+phone+"&pass="+pass+"&u_type="+u_type,-->
-
-
 <?php
 	include('db_connect.php');
 	$name = $_POST['name'];

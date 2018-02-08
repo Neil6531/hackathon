@@ -1,8 +1,8 @@
 <?php
 /* Database connection start */
-$servername = "db4free.net:3307";
-$username = "neelpatel6531";
-$password = "neelpatel";
+$servername = "127.0.0.1:3306";
+$username = "root";
+$password = "";
 $dbname = "hackathon2018";
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
 if (mysqli_connect_errno()) {
