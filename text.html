@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<button onClick="loadList()">Test</button>
+<div id="demo"></div>
+<script>
+	var i = 0;
+	function loadList() {
+    
+	var lists = new Array();
+	lists[0]="A";
+	lists[1]="B";
+	lists[2]="C";
+	 document.getElementById("demo").innerHTML = lists[i];
+	i++;
+	}
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</body>
+</html>

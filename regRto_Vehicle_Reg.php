@@ -17,12 +17,12 @@
 	$colour = $_POST['v_color'];
 	
  $sql_q="INSERT INTO rto_vehicle_reg (`reg_no`,`veh_type`,`owner_name`,'address`, `engine_no`,`chassis_no`, `date_of_reg`,`reg_validity`,`fule_type`,`seating_capacity`,`wheel_base`,`cylinder_no`,`mfg_month_yr`,`company_name`,`colour`) VALUES ('$reg_no','$veh_type','$owner_name','$owner_address','$engine_no','$chassis_no','$d_o_reg','$d_o_valid','$fule_type','$seating_capacity','$wheel_base','$cylinder_no','$mfg_month_yr','$company_name','$colour')";
-	if($sql)
+	if($sql_q)
 	{
-		
+		  header("Location:rto_index.php");	
 	}
 	else
 	{
-		echo("no");
+		  header("Location:rto_vehicle_reg.php");
 	}
 ?>

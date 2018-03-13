@@ -2,14 +2,28 @@
 <?php
 session_start();
 $a = isset($_SESSION["type"]);
-$u_type=($_SESSION["type"]);
-$type=0;
-if($u_type == 'police'){$type=1;}
-if($u_type == 'rto'){$type=2;}
-if($u_type == 'insurance'){$type=3;}
+$u_type = ($_SESSION["type"]);
+$type = 0;
+
+if ($u_type == 'police')
+{
+	$type = 1;
+}
+
+if ($u_type == 'rto')
+{
+	$type = 2;
+}
+
+if ($u_type == 'insurance')
+{
+	$type = 3;
+}
+
 ?>
 <script>
-		var u_type = <?php echo($type)?>;
+		var u_type = <?php
+echo ($type) ?>;
 		if(u_type != 3)
 		{
 			window.location = "index.php";
@@ -119,16 +133,18 @@ if($u_type == 'insurance'){$type=3;}
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="title">
-                            <h1 class="h4"><?php echo ($_SESSION['name']); ?></h1>
+                            <h1 class="h4"><?php
+echo ($_SESSION['name']); ?></h1>
                             <p>
-                                <?php echo ($_SESSION['org']); ?>
+                                <?php
+echo ($_SESSION['org']); ?>
                             </p>
                         </div>
                     </div>
                     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                     <ul class="list-unstyled">
-                        <li class="active"> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
-                        <li><a href="ins_new_policy.php"> <i class="icon-padnote"></i>New Policy</a></li>
+                        <li> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
+                        <li class="active"><a href="ins_new_policy.php"> <i class="icon-padnote"></i>New Policy</a></li>
                         <li><a href=""> <i class="icon-padnote"></i>Find Policy</a></li>
                         <li><a href=""> <i class="icon-padnote"></i>Claim Requst</a></li>
                         <li><a href=""> <i class="icon-padnote"></i>View Response (FIR)</a></li>
@@ -139,95 +155,130 @@ if($u_type == 'insurance'){$type=3;}
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">Dashboard</h2>
+                            <h2 class="no-margin-bottom">Add New Policy</h2>
                         </div>
                     </header>
                     <!-- Dashboard Counts Section-->
                     <section class="dashboard-counts no-padding-bottom">
                         <div class="container-fluid">
-                            <div class="row bg-white has-shadow">
-                                <!-- Item -->
-                                <div class="col-lg-4 col-sm-12">
-                                    <div class="item d-flex align-items-center">
-                                        <div class="icon bg-green"><i class="icon-user"></i></div>
-                                        <div class="title"><span>Total<br>Accident Case</span>
-                                            <div class="progress">
-                                                <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                           <div class="col-lg-12">
+            			      <div class="card">
+								<div class="card-header d-flex align-items-center">
+								  <h3 class="h4">Policy Form</h3>
+								</div>
+								<div class="card-body">
+								  <form class="form-horizontal">
+										
+										
+										<div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Insurance Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="in_no">
                                             </div>
                                         </div>
-                                        <div class="number"><strong><?php
-												$org_name = $_SESSION['org'];
-												$count_fir="select * from police_fir where police_station_name='$org_name'";
-												$ans=mysqli_query($conn,$count_fir);
-												$count_fir_num = mysqli_num_rows($ans);
-												echo($count_fir_num);
-											?></strong></div>
-                                    </div>
-                                </div>
-                                <!-- Item -->
-                                <div class="col-lg-4 col-sm-12">
-                                    <div class="item d-flex align-items-center">
-                                        <div class="icon bg-orange"><i class="icon-padnote"></i></div>
-                                        <div class="title"><span>Form 54<br>Submitted in RTO</span>
-                                            <div class="progress">
-                                                <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Aadhar Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="aadhar">
                                             </div>
                                         </div>
-                                        <div class="number"><strong>
-                                        	
-                                        	<?php
-												$count_fir="select * from police_form_54 where p_s_name='$org_name'";
-												$ans=mysqli_query($conn,$count_fir);
-												$count_form_54_num = mysqli_num_rows($ans);
-												echo($count_form_54_num);
-												$new_accident=$count_fir_num-$count_form_54_num;
-											?>
-                                        	
-                                        </strong></div>
-                                    </div>
-                                </div>
-                                <!-- Item -->
-                                <div class="col-lg-4 col-sm-12">
-                                    <div class="item d-flex align-items-center">
-                                        <div class="icon bg-red"><i class="icon-bill"></i></div>
-                                        <div class="title"><span>New<br>Accident Case</span>
-                                            <div class="progress">
-                                                <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="name">
                                             </div>
                                         </div>
-                                        <div class="number"><strong><?php echo($new_accident); ?></strong></div>
-                                    </div>
-                                </div>
-                                <!-- Item -->
-                            </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="in_address">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="mail">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Phone</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="phone">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Date Of Birth</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="d_o_b">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+										  <label class="col-sm-3 form-control-label">Gender</label>
+										  <div class="col-sm-9 select">
+												<input type="text" class="form-control" id="gender">
+										  </div>
+										</div>
+										<div class="line"></div>
+                                        
+                                        <div class="form-group row">
+										  <label class="col-sm-3 form-control-label">Insurance Type</label>
+										  <div class="col-sm-9 select">
+											<select name="account" class="form-control" id="in_type">
+											  <option>Life Insurance</option>
+											  <option>Health Insurance</option>
+											  <option>Vehicle Insurance</option>
+											</select>
+										  </div>
+										</div>
+										<div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="amount">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Police Expire Date</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="exp_date">
+                                            </div>
+                                        </div>
+                                        <div class="line"></div>
+                                        
+                                        
+										
+										
+								  </form>
+								  
+								  <center>
+                                        <button id="reset_button" class="btn btn-secondary">Cancel</button>
+                                        <button id="submit_button" class="btn btn-primary">Save</button>
+                                    </center>
+								  
+								</div>
+							  </div>
+                		   </div>
                         </div>
                     </section>
-                    <br>
-                    <br>
-
-                    <div class="col-lg-12">
-                        <div class="line-chart-example card">
-                            <div class="card-close">
-                                <div class="dropdown">
-                                    <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                    <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow">
-                                        <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
-                                        <a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-header d-flex align-items-center">
-                                <h3 class="h4">Accident Occured</h3>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="accident" style="width: 100%; height: 350px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-               
-
+                    <br />
+                    <br />
                
                     <footer class="main-footer">
                         <div class="container-fluid">
@@ -253,59 +304,59 @@ if($u_type == 'insurance'){$type=3;}
         <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
         <script src="js/Chart.min.js"></script>
         <script src="js/front.js"></script>
-        <script>
-            var LINECHARTEXMPLE = $('#accident ');
-            var lineChartExample = new Chart(LINECHARTEXMPLE, {
-                type: 'line',
-                options: {
-                    legend: {
-                        labels: {
-                            fontColor: "#777",
-                            fontSize: 16
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            gridLines: {
-                                color: '#eee'
-                            }
-                        }],
-                        yAxes: [{
-                            display: true,
-                            gridLines: {
-                                color: '#eee'
-                            }
-                        }]
-                    },
-                },
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [{
-                        label: "Number of Accident",
-                        fill: true,
-                        lineTension: 0.3,
-                        backgroundColor: "rgba(0,175,217, 0.1)",
-                        borderColor: "rgba(133, 180, 242, 1)",
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        borderWidth: 2,
-                        pointBorderColor: "rgba(133, 180, 242, 0.91)",
-                        pointBackgroundColor: "#fff",
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 10,
-                        pointHoverBackgroundColor: "rgba(133, 180, 242, 0.91)",
-                        pointHoverBorderColor: "rgba(220,220,220,1)",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
-                        pointHitRadius: 10,
-                        data: [30, 50, 40, 61, 42, 35, 40],
-                        spanGaps: false
-                    }]
-                }
-            });
         </script>
+        <script>
+			
+                $(document).ready(function() {
+                    $("#loader").hide();
+					
+					$("#aadhar").on('change',function(){
+						var aadhar = $("#aadhar").val();
+						$.ajax({
+							type: "POST",
+							url: "ins_get_aadhar_data.php",
+							data: "aadhar=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#name").val(data[0]);
+								$("#in_address").val(data[1]);
+								$("#mail").val(data[2]);
+								$("#phone").val(data[3]);
+								$("#d_o_b").val(data[4]);
+								$("#gender").val(data[5]);
+							}
+						});
+					});
+					
+					$("#submit_button").click(function(){
+						var in_no = $("#in_no").val();
+						var name = $("#name").val();
+						var aadhar = $("#aadhar").val();
+						var email= $("#mail").val();
+						var phone = $("#phone").val();
+						var address= $("#in_address").val();
+						var d_o_b= $("#d_o_b").val();
+						var gender= $("#gender").val();
+						var in_type= $("#in_type").val();
+						var amount= $("#amount").val();
+						var exp_date= $("#exp_date").val();
+						alert(in_no+"  "+name+"  "+aadhar+"  "+email+"  "+phone+"  "+address+"  "+d_o_b+"  "+gender+"  "+in_type+"  "+amount+"  "+exp_date);
+						$.ajax({
+							type: "POST",
+							url: "ins_new_policy_insert.php",
+							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&amount="+amount+"&exp_date="+exp_date,
+							success:function(data){
+								if(data=="yes"){alert("Yes");}
+								else{alert("no");}
+								
+							}
+						});
+					});
+                });
+            </script>
+			
+		</script>
     </body>
 </html>
+ 
+
