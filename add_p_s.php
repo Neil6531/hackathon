@@ -40,7 +40,7 @@
                                 <!-- Navbar Header-->
                                 <div class="navbar-header">
                                     <!-- Navbar Brand -->
-                                    <a href="index.html" class="navbar-brand">
+                                    <a href="index.php" class="navbar-brand">
                                         <div class="brand-text brand-big"><span>Integration</span></div>
                                         <div class="brand-text brand-small">Integration</div>
                                     </a>
@@ -212,10 +212,10 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p>Your company &copy; 2017-2019</p>
+                                         <p>Integration &copy; 2017-2019</p>
                                     </div>
                                     <div class="col-sm-6 text-right">
-                                        <p>Design by Integration Police</p>
+                                        <p>Design by Integration</p>
                                         <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                                     </div>
                                 </div>

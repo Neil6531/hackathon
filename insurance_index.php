@@ -51,7 +51,7 @@ if($u_type == 'insurance'){$type=3;}
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
+                <!-- Navbar Brand --><a href="index.php" class="navbar-brand">
                   <div class="brand-text brand-big"><span>Integration Incs</span></div>
                   <div class="brand-text brand-small"><strong>Integration</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -106,7 +106,7 @@ if($u_type == 'insurance'){$type=3;}
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
-            <li class="active"> <a href="index.html"><i class="icon-home"></i>Home</a></li>
+            <li class="active"> <a href="index.php"><i class="icon-home"></i>Home</a></li>
             <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Dropdown </a>
               <ul id="dashvariants" class="collapse list-unstyled">
                 <li><a href="#">Page</a></li>
@@ -145,7 +145,7 @@ if($u_type == 'insurance'){$type=3;}
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Your company &copy; 2017-2019</p>
+                   <p>Integration &copy; 2017-2019</p>
                 </div>
                 <div class="col-sm-6 text-right">
                   <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>

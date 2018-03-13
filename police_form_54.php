@@ -66,7 +66,7 @@ if($u_type == 'insurance'){$type=3;}
                                 <!-- Navbar Header-->
                                 <div class="navbar-header">
                                     <!-- Navbar Brand -->
-                                    <a href="index.html" class="navbar-brand">
+                                    <a href="index.php" class="navbar-brand">
                                         <div class="brand-text brand-big"><span>Integration</span></div>
                                         <div class="brand-text brand-small">Integration</div>
                                     </a>
@@ -284,8 +284,8 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
-                                            
+
+
                                             <div class="col-sm-10 offset-3">
 
                                                 <div class="form-group row">
@@ -295,39 +295,39 @@ if($u_type == 'insurance'){$type=3;}
                                                     </div>
                                                 </div>
                                                 <div class="line"></div>
-                                                
+
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 form-control-label">Vehicle Owner Name</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" id="veh_type" readonly>
+                                                        <input type="text" class="form-control" id="veh_owner" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="line"></div>
-                                                
+
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 form-control-label">Vehicle Owner Address</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" id="veh_type" readonly>
+                                                        <input type="text" class="form-control" id="veh_address" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="line"></div>
-                                                
+
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 form-control-label">Vehicle Engine Number</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" id="veh_type" readonly>
+                                                        <input type="text" class="form-control" id="veh_eng" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="line"></div>
-                                                
+
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 form-control-label">Vehicle Chassis Number</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" id="veh_type" readonly>
+                                                        <input type="text" class="form-control" id="veh_cha" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="line"></div>
-                                                
+
                                             </div>
 
                                             <div class="form-group row">
@@ -381,7 +381,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 <div class="line"></div>
 
                                             </div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Name Of Insurance Company</label>
                                                 <div class="col-sm-9">
@@ -389,7 +389,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Address Of Insurance Company</label>
                                                 <div class="col-sm-9">
@@ -397,7 +397,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Policy Number</label>
                                                 <div class="col-sm-9">
@@ -405,7 +405,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Insurance Validity Date</label>
                                                 <div class="col-sm-9">
@@ -413,7 +413,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Policy Number</label>
                                                 <div class="col-sm-9">
@@ -421,7 +421,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Route Permit Particulars</label>
                                                 <div class="col-sm-9">
@@ -429,7 +429,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                             <div class="form-group row">
                                                 <label class="col-sm-3 form-control-label">Action Taken, If any, Result Of There</label>
                                                 <div class="col-sm-9">
@@ -437,7 +437,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 </div>
                                             </div>
                                             <div class="line"></div>
-                                            
+
                                         </form>
                                         <br>
                                         <center>
@@ -454,10 +454,10 @@ if($u_type == 'insurance'){$type=3;}
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p>Your company &copy; 2017-2019</p>
+                                         <p>Integration &copy; 2017-2019</p>
                                     </div>
                                     <div class="col-sm-6 text-right">
-                                        <p>Design by Integration Police</p>
+                                        <p>Design by Integration</p>
                                         <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                                     </div>
                                 </div>
@@ -491,25 +491,31 @@ if($u_type == 'insurance'){$type=3;}
 							success:function(data){
 								$("#form_54").show(500);
 								$("#find_fir").hide(500);
-								var fir_n = data[0];
-								var date = data[1];
-								var address = data[2];
-								var time = data[3];
-								var p_address = data[4];
-								var p_name = data[5];
-								$("#fir_no").val(fir_n);
-								$("#date").val(date);
-								$("#place").val(address);
-								$("#time").val(time);
-								$("#injured_a").val(p_address);
-								$("#injured_n").val(p_name);
+								$("#fir_no").val(data[0]);
+								$("#date").val(data[1]);
+								$("#place").val(data[2]);
+								$("#time").val(data[3]);
+								$("#injured_a").val(data[4]);
+								$("#injured_n").val(data[5]);
 								$("#loader").hide(500);
 							}
 						});
 					});
-					
+
 					$("#veh_no").on('change',function(){
-						
+						$.ajax({
+							type: "POST",
+							url: "police_select_veh.php",
+							data: "veh_no=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#veh_type").val(data[0]);
+								$("#veh_owner").val(data[1]);
+								$("#veh_address").val(data[2]);
+								$("#veh_eng").val(data[3]);
+								$("#veh_cha").val(data[4]);
+							}
+						});
 					});
                 });
             </script>
