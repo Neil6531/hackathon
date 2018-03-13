@@ -105,7 +105,7 @@ if($u_type == 'insurance'){$type=3;}
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-          <ul class="list-unstyled">
+         <ul class="list-unstyled">
             <li class="active"> <a href="rto_index.php"><i class="icon-home"></i>Home</a></li>
 			<li> <a href="Rto_Driving_Licence.php"> <i class="icon-padnote"></i>RTO Driving Licence </a></li>
             <li> <a href="Rto_Vehicle_reg.php"> <i class="icon-padnote"></i>RTO Vehicle Registration  </a></li>
@@ -114,16 +114,119 @@ if($u_type == 'insurance'){$type=3;}
         <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
-            <div class="container-fluid">
-              <h2 class="no-margin-bottom">Dashboard</h2>
-            </div>
+            <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">RTO Driving Licence Form</h3>
+                    </div>
+					
+		
           </header>
+		  <div  class="page-header">
+		  <div class="card-body">
+                      <form class="form-horizontal" method="post" id="rto_licence"  action="regRto_Driving_licence.php">
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">User Name</label>	
+							<div class="col-sm-9">						  
+							<input type="text" id="name" name="name" class="form-control">
+							</div>
+							</div>
+						<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Date Of Birth</label>
+							<div class="col-sm-9">								
+							<input type="date" id="b_o_date" name="d_o_b" class="form-control">
+							</div>
+							</div>
+							<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Blood Group</label>
+							<div class="col-sm-9">								
+							<input type="text" id="blood_group" name="blood_group" class="form-control">
+							</div>
+							</div>
+							<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Licence Issue Date</label>
+							<div class="col-sm-9">								
+							<input type="date" id="issue_date" name="issue_date"  class="form-control">
+							</div>
+							</div>
+							<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Licence Expire Date</label>
+							<div class="col-sm-9">								
+							<input type="date" id="exp_date" name="exp_date" class="form-control">
+							</div>
+							</div>
+						 <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Type Of Vehicle</label>
+                          <div class="col-sm-9 select">
+                            <select  class="form-control" name="licence_type"  id="licence_type">
+								<option value='1'>Two wheeler</option>
+								<option value='2'>Three Wheeler</option>
+								<option value='3'>Four Wheeler</option>
+                            </select>
+                          </div>
+                        
+                        </div>
+						<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Adhar No</label>
+							<div class="col-sm-9">								
+							<input type="number" id="adhar_no" name="aadhar_no" class="form-control">
+							</div>
+							</div>
+							<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Phone No</label>
+							<div class="col-sm-9">								
+							<input type="text" id="phone" name="phone" class="form-control">
+							</div>
+							</div>
+							<div class="form-group row">
+							<label class="col-sm-3 form-control-label">Address</label>
+							<div class="col-sm-9">								
+							<input type="text" id="address" name="address" class="form-control">
+							</div>
+							</div>
+							 <div class="form-group row">
+                          <div class="col-sm-4 offset-sm-3">
+                           
+                            <button type="submit" class="btn btn-primary" id="submit" name="registration" value="registration">Register</button>
+                          </div>
+</form>
+</div>
+<script>
+$(document).ready(function(){
+		$("#submit").click(function(){
+				var name = $("#name").val();
+				var d_o_b = $("#b_o_date").val();
+				var blood_group = $("#blood_group").val();
+				var issue_date = $("#issue_date").val();
+				var exp_date = $("#exp_date").val();
+				var licence_type =$("#licence_type").val();
+				var aadhar_no = $("#adhar_no").val();
+				var phone = $("#phone").val();
+				var address = $("#address").val();
+				$.ajax({
+					type: "POST",
+					url: "regRto_Driving_licence.php",
+					data: "name="+name+"&d_o_b="+d_o_b+"&blood_group="+blood_group+"&issue_date="+issue_date+"&exp_date="+exp_date+"&licence_type="+licence_type+"&aadhar_no="+aadhar_no+"&phone="+phone+"&address="+address,
+					success:function(data){
+						if(data == "yes")
+						{
+								alert("success");
+						}
+						else{
+							alert("not success");
+							}
+
+					}
+				
+
+				});
+		});
+
+});
+</script>
           <!-- Dashboard Counts Section-->
           
-          
-          
-          
-          
+          <div>
+		  
+     
           
           <footer class="main-footer">
             <div class="container-fluid">

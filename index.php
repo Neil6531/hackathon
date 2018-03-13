@@ -192,7 +192,7 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 								</div>
 								<div class="form-group">
 									<input id="i-c-code" type="text" name="i_c_code" class="input-material">
-									<label for="i-c-code" class="label-material">CompanCompanyegistration Code</label>
+									<label for="i-c-code" class="label-material">Company Rgistration Code</label>
 								</div>
 								<div class="form-group">
 									<input id="i-c-emailid" type="text" name="i_c_emailid" class="input-material">

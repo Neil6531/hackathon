@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include('db_connect.php');
 $a = isset($_SESSION["type"]);
 $u_type=($_SESSION["type"]);
 $type=0;
@@ -154,7 +155,13 @@ if($u_type == 'insurance'){$type=3;}
                                                 <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                                             </div>
                                         </div>
-                                        <div class="number"><strong>25</strong></div>
+                                        <div class="number"><strong><?php
+												$org_name = $_SESSION['org'];
+												$count_fir="select * from police_fir where police_station_name='$org_name'";
+												$ans=mysqli_query($conn,$count_fir);
+												$count_fir_num = mysqli_num_rows($ans);
+												echo($count_fir_num);
+											?></strong></div>
                                     </div>
                                 </div>
                                 <!-- Item -->
@@ -166,7 +173,17 @@ if($u_type == 'insurance'){$type=3;}
                                                 <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                                             </div>
                                         </div>
-                                        <div class="number"><strong>70</strong></div>
+                                        <div class="number"><strong>
+                                        	
+                                        	<?php
+												$count_fir="select * from police_form_54 where p_s_name='$org_name'";
+												$ans=mysqli_query($conn,$count_fir);
+												$count_form_54_num = mysqli_num_rows($ans);
+												echo($count_form_54_num);
+												$new_accident=$count_fir_num-$count_form_54_num;
+											?>
+                                        	
+                                        </strong></div>
                                     </div>
                                 </div>
                                 <!-- Item -->
@@ -178,7 +195,7 @@ if($u_type == 'insurance'){$type=3;}
                                                 <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                                             </div>
                                         </div>
-                                        <div class="number"><strong>40</strong></div>
+                                        <div class="number"><strong><?php echo($new_accident); ?></strong></div>
                                     </div>
                                 </div>
                                 <!-- Item -->
@@ -224,7 +241,7 @@ if($u_type == 'insurance'){$type=3;}
 							  <div class="left-col col-lg-5 d-flex align-items-center justify-content-between">
 								<div class="project-title d-flex align-items-center">
 								  <div class="text">
-									<h3 class="h4">Victiom Name</h3><small>Accident</small>
+									<h3 class="h4">Victim Name</h3><small>Accident</small>
 								  </div>
 								</div>
 								<div class="project-date"><span class="hidden-sm-down">Today at 4:24 AM</span></div>
