@@ -205,7 +205,7 @@ if($u_type == 'insurance'){$type=3;}
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Date</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="fir_date" value="<? echo (date(" d/m/Y ")); ?>" readonly>
+                                                <input type="text" class="form-control" id="fir_date" value="<? echo (date(" d/m/Y ")); ?>">
                                             </div>
                                         </div>
                                         <div class="line"></div>
@@ -540,7 +540,7 @@ if($u_type == 'insurance'){$type=3;}
 							},
 							success: function(data) {
                                 if (data == "yes") {
-                                    alert("sucessfully");
+//                                    alert("sucessfully");
                                 } else {
                                     alert("Sorry");
                                 }
