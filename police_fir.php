@@ -181,7 +181,7 @@ if($u_type == 'insurance'){$type=3;}
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">FIR No.</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="fir_no" value="<? echo $n_id=$c_id+1; ?>" readonly>
+                                                <input type="text" class="form-control" id="fir_no" value="<?php echo $n_id=$c_id+1; ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="line"></div>
@@ -197,7 +197,7 @@ if($u_type == 'insurance'){$type=3;}
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">District</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="district" value="<? echo($_SESSION['district']); ?>" readonly>
+                                                <input type="text" class="form-control" id="district" value="<?php echo($_SESSION['district']); ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="line"></div>
@@ -205,7 +205,7 @@ if($u_type == 'insurance'){$type=3;}
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Date</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="fir_date" value="<? echo (date(" d/m/Y ")); ?>">
+                                                <input type="text" class="form-control" id="fir_date" value="<?php echo (date(" d/m/Y ")); ?>">
                                             </div>
                                         </div>
                                         <div class="line"></div>
