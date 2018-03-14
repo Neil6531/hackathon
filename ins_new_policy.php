@@ -245,6 +245,38 @@ echo ($_SESSION['org']); ?>
 										  </div>
 										</div>
 										<div class="line"></div>
+										  <div class="form-group row">
+										  <label class="col-sm-3 form-control-label">Nomi Type</label>
+										  <div class="col-sm-9 select">
+											<select name="account" class="form-control" id="no_type">
+											  <option >Father</option>
+											  <option>Mother </option>
+											  <option>Wife</option>
+											  <option>Child</option>
+											  <option>Other</option>
+											</select>
+										  </div>
+										</div>
+										<div class="line"></div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Nomini Aadhar Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="no_aadhar">
+                                            </div>
+                                        </div>
+											<div class="line"></div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Nomini Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="no_name">
+                                            </div>
+                                        </div>
+										<div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Nomini phone</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="no_phone">
+                                            </div>
+                                        </div>
                                         
                                         <div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Amount</label>
@@ -328,6 +360,24 @@ echo ($_SESSION['org']); ?>
 						});
 					});
 					
+              
+					$("#no_aadhar").on('change',function(){
+						var aadhar = $("#no_aadhar").val();
+						$.ajax({
+							type: "POST",
+							url: "ins_get_aadhar_data1.php",
+							data: "no_aadhar=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#no_name").val(data[0]);
+								$("#no_phone").val(data[1]);
+								
+								
+							}
+						});
+				});
+					
+				 
 					$("#submit_button").click(function(){
 						var in_no = $("#in_no").val();
 						var name = $("#name").val();
@@ -338,13 +388,17 @@ echo ($_SESSION['org']); ?>
 						var d_o_b= $("#d_o_b").val();
 						var gender= $("#gender").val();
 						var in_type= $("#in_type").val();
+						var no_type= $("#no_type").val();
+						var no_aadhar= $("#no_aadhar").val();
+						var no_name= $("#no_name").val();
+						var no_phone= $("#no_phone").val();
 						var amount= $("#amount").val();
 						var exp_date= $("#exp_date").val();
 						alert(in_no+"  "+name+"  "+aadhar+"  "+email+"  "+phone+"  "+address+"  "+d_o_b+"  "+gender+"  "+in_type+"  "+amount+"  "+exp_date);
 						$.ajax({
 							type: "POST",
 							url: "ins_new_policy_insert.php",
-							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&amount="+amount+"&exp_date="+exp_date,
+							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&no_type="+no_type+"&no_aadhar="+no_aadhar+"&no_name="+no_name+"&no_phone="+no_phone+"&amount="+amount+"&exp_date="+exp_date,
 							success:function(data){
 								if(data=="yes"){alert("Yes");}
 								else{alert("no");}
