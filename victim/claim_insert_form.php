@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <?php
-include('db_connect.php');
+include('../db_connect.php');
 session_start();
+
+$sql = "SELECT p_s_name FROM police_station_location ORDER BY p_s_name";
+$result = mysqli_query($conn,$sql)or die(mysqli_error());
+
+$sql1 = "SELECT * FROM insurance";
+$result1 = mysqli_query($conn,$sql1)or die(mysqli_error());
 ?>
+
 
 <html>
   <head>
@@ -48,32 +55,65 @@ session_start();
             <!-- Form Panel    -->
             <div class="col-lg-6 bg-white" id="login-form">
               <div class="form d-flex align-items-center">
-                <div class="content"><center><h2>Find insurance policy</h2></center><br><br>
+                <div class="content"><center><h2>Claim Your Policy</h2></center><br><br>
                   <form id="login-form" method="post" action="select_policy.php">
+                    
                     <div class="form-group">
-                      <input id="aadhar" type="text" name="aadhar" class="input-material">
-                      <label for="aadhar" class="label-material">Aadhar Number</label>
+                      <input id="policy_no" type="text" name="policy_no" class="input-material">
+                      <label for="policy_no" class="label-material">Policy Number</label>
                     </div>
-                    <input type="submit" value="Find" class="btn btn-primary">
+                    
+                    <div class="form-group">
+                      <input id="fir_no" type="text" name="fir_no" class="input-material">
+                      <label for="fir_no" class="label-material">FIR Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+						<label class="form-control-label">Select Police Station</label>
+						<select name="p-s-name" class="form-control col-sm-9" id="p-s-name" REQUIRED>
+							<option>Select</option>
+							<?php
+							while($row = mysqli_fetch_array($result))
+							{
+								$p_s_name = $row['p_s_name'];
+								echo "<option value=".$p_s_name." class='text-capitalize'>".$p_s_name."</option>";
+							}
+							?>
+							<option value="" class="text-capitalize"></option>
+						</select>
+					</div>
+                    
+                    <div class="form-group">
+                      <input id="name" type="text" name="name" class="input-material">
+                      <label for="name" class="label-material">Victim Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input id="no_name" type="text" name="no_name" class="input-material">
+                      <label for="no_name" class="label-material">Nominee Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input id="no_phone" type="text" name="no_phone" class="input-material">
+                      <label for="no_phone" class="label-material">Nominee Phone</label>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input id="no_email" type="text" name="no_email" class="input-material">
+                      <label for="no_email" class="label-material">Nomine Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input id="com_name" type="text" name="com_name" class="input-material">
+                      <label for="com_name" class="label-material">Insurance Company Name</label>
+                    </div>
+                    
+                    
                   </form>
-                  <small>Track your claim </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">Click Here</a>
+                  <input type="submit" value="Find" class="btn btn-primary">
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 bg-white" id="registration-form">
-				<div class="form d-flex align-items-center">
-					<div class="content"><h2>Find Your PRN for track status of insurance claim</h2></center><br><br>
-						 <form id="login-form" method="post">
-							<div class="form-group">
-							  <input id="claim_id" type="text" name="claim_id" class="input-material">
-							  <label for="claim_id" class="label-material">Claim ID</label>
-							</div>
-							<button class="btn btn-primary">Track</button>
-						  </form>
-							<small>To find insurance policy </small><a role="button" class="signup" id="login-button" style="cursor: pointer"> Click Here</a>
-					</div>
-				</div>
-			</div>
           </div>
         </div>
       </div>

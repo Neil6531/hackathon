@@ -132,7 +132,7 @@ if($u_type == 'insurance'){$type=3;}
                         <li class="active"> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
                         <li><a href="police_fir.php"> <i class="icon-padnote"></i>FIR</a></li>
                         <li><a href="police_form_54.php"> <i class="icon-interface-windows"></i>Form 54</a></li>
-                        <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>View all accident case </a></li>
+                        
                     </ul>
                 </nav>
                 <div class="content-inner">
@@ -168,7 +168,7 @@ if($u_type == 'insurance'){$type=3;}
                                 <div class="col-lg-4 col-sm-12">
                                     <div class="item d-flex align-items-center">
                                         <div class="icon bg-orange"><i class="icon-padnote"></i></div>
-                                        <div class="title"><span>Form 54<br>Submitted in RTO</span>
+                                        <div class="title"><span>Form 54<br>Submitted in Insurance</span>
                                             <div class="progress">
                                                 <div role="progressbar" style="width: 100%; height: 4px;" aria-valuenow="{#val.value}" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                                             </div>
@@ -256,142 +256,7 @@ if($u_type == 'insurance'){$type=3;}
 					  </section>
                     
 
-                    <section class="updates no-padding-top">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <!-- Recent Updates-->
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="recent-updates card">
-                                        <div class="card-close">
-                                            <div class="dropdown">
-                                                <button type="button" id="closeCard6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                                <div aria-labelledby="closeCard6" class="dropdown-menu dropdown-menu-right has-shadow">
-                                                    <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
-                                                    <a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-header">
-                                            <h3 class="h4">Recent Updates</h3>
-                                        </div>
-                                        <div class="card-body no-padding">
-                                            <!-- Item-->
-                                            <div class="item d-flex justify-content-between">
-                                                <div class="info d-flex">
-                                                    <div class="icon"><i class="icon-rss-feed"></i></div>
-                                                    <div class="title">
-                                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="date text-right"><strong>24</strong><span>May</span></div>
-                                            </div>
-                                            <!-- Item-->
-                                            <div class="item d-flex justify-content-between">
-                                                <div class="info d-flex">
-                                                    <div class="icon"><i class="icon-rss-feed"></i></div>
-                                                    <div class="title">
-                                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="date text-right"><strong>24</strong><span>May</span></div>
-                                            </div>
-                                            <!-- Item        -->
-                                            <div class="item d-flex justify-content-between">
-                                                <div class="info d-flex">
-                                                    <div class="icon"><i class="icon-rss-feed"></i></div>
-                                                    <div class="title">
-                                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="date text-right"><strong>24</strong><span>May</span></div>
-                                            </div>
-                                            <!-- Item-->
-                                            <div class="item d-flex justify-content-between">
-                                                <div class="info d-flex">
-                                                    <div class="icon"><i class="icon-rss-feed"></i></div>
-                                                    <div class="title">
-                                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="date text-right"><strong>24</strong><span>May</span></div>
-                                            </div>
-                                            <!-- Item-->
-                                            <div class="item d-flex justify-content-between">
-                                                <div class="info d-flex">
-                                                    <div class="icon"><i class="icon-rss-feed"></i></div>
-                                                    <div class="title">
-                                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="date text-right"><strong>24</strong><span>May</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Recent Activities -->
-                                <div class="col-lg-6 col-sm-12">
-                                    <div class="recent-activities card">
-                                        <div class="card-close">
-                                            <div class="dropdown">
-                                                <button type="button" id="closeCard8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                                <div aria-labelledby="closeCard8" class="dropdown-menu dropdown-menu-right has-shadow">
-                                                    <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
-                                                    <a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-header">
-                                            <h3 class="h4">Recent Activities</h3>
-                                        </div>
-                                        <div class="card-body no-padding">
-                                            <div class="item">
-                                                <div class="row">
-                                                    <div class="col-4 date-holder text-right">
-                                                        <div class="icon"><i class="icon-clock"></i></div>
-                                                        <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
-                                                    </div>
-                                                    <div class="col-8 content">
-                                                        <h5>Meeting</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="row">
-                                                    <div class="col-4 date-holder text-right">
-                                                        <div class="icon"><i class="icon-clock"></i></div>
-                                                        <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
-                                                    </div>
-                                                    <div class="col-8 content">
-                                                        <h5>Meeting</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="row">
-                                                    <div class="col-4 date-holder text-right">
-                                                        <div class="icon"><i class="icon-clock"></i></div>
-                                                        <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
-                                                    </div>
-                                                    <div class="col-8 content">
-                                                        <h5>Meeting</h5>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    
 
                     <footer class="main-footer">
                         <div class="container-fluid">

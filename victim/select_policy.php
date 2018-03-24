@@ -4,11 +4,13 @@ include("../db_connect.php");
 session_start();
 $aadhar=$_POST['aadhar'];
 //echo($aadhar);
-$sql = "SELECT in_no,name,in_type,no_name,no_phone FROM insurance where aadhar_no='$aadhar'";
+$sql = "SELECT in_no,name,in_type,no_name,no_phone,email,exp_date,ammount FROM insurance where aadhar_no='$aadhar'";
 //echo($sql);
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sql)or die(mysqli_error());
 
+												
 //$row = mysqli_fetch_row($result);
+
 ?>
 
 <html>
@@ -42,37 +44,58 @@ $result = mysqli_query($conn,$sql);
         <div class="form-holder has-shadow">
           <div class="row">
             <!-- Logo & Information Panel-->
-            <div class="col-lg-6">
-              <div class="info d-flex align-items-center">
-                <div class="content">
-                  <div class="logo">
-                    <h1 class="text-uppercase">Integration</h1>
-                  </div>
-                  <p>Integration between RTO police and insurance company in case of fatal accident case.</p>
-                </div>
-              </div>
-            </div>
             <!-- Form Panel    -->
-            <div class="col-lg-6 bg-white" id="login-form">
+            <div class="col-lg-12 bg-white" id="login-form">
             
             <div class="data" style="padding: 50px;">
-					<?php 
-					while($row=mysqli_fetch_array($result)){
-					?>
-           		 <form id="login-form" method="post">
-					<strong>Policy No : </strong><?php  echo($row["in_no"]);?><br>
-				<strong>Name : </strong><?php echo($row["name"]);?><br>
-				<strong>Insurance Type : </strong><?php echo($row["in_type"]);?><br>
-				<strong>Nominee Name : </strong><?php echo($row["no_name"]);?><br>
-				<strong>Nominee Phone : </strong><?php echo($row["no_phone"]);}?>
-					
-				  </form>
-				  <form  id="claim_insert" method="post">
-				  <br><br>
-					<input type="text" placeholder="Enter FIR Number" id="fir_no">
-					<br><br>
-				  <input type="submit" name="claim"  value="Claim Insurance" class="btn btn-primary" id="submit_claim"/>
-				</form>
+				<section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">List Of Policys</h3>
+                    </div>
+                    <div class="card-body">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Policy Number</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Nominee Name</th>
+                            <th>Nominee Phone</th>
+                            <th>Policy EXP Date</th>
+                            <th>Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         	<?php 
+							while($row = mysqli_fetch_array($result)){
+							echo("<tr>");
+								echo("<td>".$row['in_no']."</td>");
+								echo("<td>".$row['name']."</td>");
+								echo("<td>".$row['email']."</td>");
+								echo("<td>".$row['no_name']."</td>");
+								echo("<td>".$row['no_phone']."</td>");
+								echo("<td>".$row['exp_date']."</td>");
+								echo("<td>".$row['ammount']."</td>");
+								?><td><a role="button" class="btn btn-sm btn-primary" href="claim_insert_form.php?policy_no=<?php echo($row['in_no']) ?>" style="color: #FFFFFF;
+">Claim</a></td><?php
+							echo("</tr>");
+								
+								}
+							?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
 				</div>
             </div> 
           </div>
@@ -91,23 +114,8 @@ $result = mysqli_query($conn,$sql);
 	<script>
 		$(document).ready(function(){
 			
-			
 			$("#loader").hide();
-			
-			$("#submit_claim").click(function(){
-				var f_no=$("#fir_no").val();
-				$.ajax({
-					type:"post",
-					url:"claim_insert.php",
-					data:"f_no="+f_no,
-					success:function(data)
-					{
-						
-					}
-					
-				});
-				
-			});
+		
 		});
 	</script>
   </body>
