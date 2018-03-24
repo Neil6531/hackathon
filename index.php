@@ -7,6 +7,7 @@ $u_type=($_SESSION["type"]);
 if($u_type == 'police'){$type=1;$a=1;}
 if($u_type == 'rto'){$type=2;$a=1;}
 if($u_type == 'insurance'){$type=3;$a=1;}
+else{$type=0;$a=0;}
 ?>
 <script>
 		var a = <?php echo($a) ?>;
@@ -71,16 +72,16 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
                 <div class="content">
                   <form id="login-form" method="post" action="login.php">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" class="input-material">
+                      <input id="login-username" type="text" name="loginUsername" class="input-material" required>
                       <label for="login-username" class="label-material">User Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" class="input-material">
+                      <input id="login-password" type="password" name="loginPassword" class="input-material" required>
                       <label for="login-password" class="label-material">Password</label>
                     </div><button class="btn btn-primary">Login</button>
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">registration</a>
-                </div>
+                </div> 
               </div>
             </div>
             <div class="col-lg-6 bg-white" id="registration-form">
@@ -100,12 +101,12 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 							 
 							<form id="police-form" method="post">
 								<div class="form-group">
-									<input id="p-name" type="text" name="p_name" class="input-material">
+									<input id="p-name" type="text" name="p_name" class="input-material" REQUIRED>
 									<label for="p-name" class="label-material">Enter Your Name</label>
 								</div>
 								<div class="form-group">
 									<label class="form-control-label">Select Police Station</label>
-									<select name="p-s-name" class="form-control col-sm-9" id="p-s-name">
+									<select name="p-s-name" class="form-control col-sm-9" id="p-s-name" REQUIRED>
 										<option>Select</option>
 										<?php
 										while($row = mysqli_fetch_array($result))
@@ -118,30 +119,30 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 									</select>
 								</div>
 								<div class="form-group">
-									<input id="district" type="text" name="p_s_pincode_area" class="input-material" placeholder="Police Station District" readonly>
+									<input id="district" type="text" name="p_s_pincode_area" class="input-material" placeholder="Police Station District" readonly REQUIRED>
 								</div>
 								<div class="form-group">
-									<input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material">
+									<input id="p-s-pincode-area" type="text" name="p_s_pincode_area" class="input-material" REQUIRED> 
 									<label for="p-s-pincode-area" class="label-material">Police Station Pincode</label>
 								</div>
 								<div class="form-group">
-									<input id="p-s-emailid" type="text" name="p_s_emailid" class="input-material">
+									<input id="p-s-emailid" type="text" name="p_s_emailid" class="input-material" REQUIRED>
 									<label for="p-s-emailid" class="label-material">Police Station Email ID</label>
 								</div>
 								<div class="form-group">
-									<input id="p-s-phone" type="text" name="p_s_phone" class="input-material">
+									<input id="p-s-phone" type="text" name="p_s_phone" class="input-material" REQUIRED>
 									<label for="p-s-phone" class="label-material">Phone Number</label>
 								</div>
 								<div class="form-group">
-									<input id="p-s-pass" type="password" name="p_s_pass" class="input-material">
+									<input id="p-s-pass" type="password" name="p_s_pass" class="input-material" REQUIRED>
 									<label for="p-s-pass" class="label-material">Enter Password</label>
 								</div>
 								<div class="form-group">
-									<input id="p-s-pass-confirm" type="password" name="p_s_pass_confirm" class="input-material">
+									<input id="p-s-pass-confirm" type="password" name="p_s_pass_confirm" class="input-material" REQUIRED>
 									<label for="p-s-pass-confirm" class="label-material">Enter Password to Confirm</label>
 								</div>
 								<div class="form-group" id="type-police">
-									<input id="police-type" type="text" name="type" class="input-material">
+									<input id="police-type" type="text" name="type" class="input-material" REQUIRED>
 									<label for="police-type" class="label-material">type</label>
 								</div>
 								<a id="police-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">registration</a>
@@ -150,31 +151,31 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 
 							<form id="rto-form" method="post" action="registration.php">
 								<div class="form-group">
-									<input id="rto-name" type="text" name="rto_name" class="input-material">
+									<input id="rto-name" type="text" name="rto_name" class="input-material" REQUIRED>
 									<label for="rto-name" class="label-material">RTO Name</label>
 								</div>
 								<div class="form-group">
-									<input id="rto-u-name" type="text" name="rto_u_name" class="input-material">
+									<input id="rto-u-name" type="text" name="rto_u_name" class="input-material" REQUIRED>
 									<label for="rto-u-name" class="label-material">Enter Your Name</label>
 								</div>
 								<div class="form-group">
-									<input id="rto-emailid" type="text" name="rto_emailid" class="input-material">
+									<input id="rto-emailid" type="text" name="rto_emailid" class="input-material"REQUIRED>
 									<label for="rto-emailid" class="label-material">RTO Email ID</label>
 								</div>
 								<div class="form-group">
-									<input id="rto-phone" type="text" name="rto_phone" class="input-material">
+									<input id="rto-phone" type="text" name="rto_phone" class="input-material" REQUIRED>
 									<label for="rto-phone" class="label-material">RTO Phone Number</label>
 								</div>
 								<div class="form-group">
-									<input id="rto-pass" type="password" name="rto_pass" class="input-material">
+									<input id="rto-pass" type="password" name="rto_pass" class="input-material" REQUIRED>
 									<label for="rto-pass" class="label-material">Enter Password</label>
 								</div>
 								<div class="form-group">
-									<input id="rto-pass-confirm" type="password" name="rto_pass_confirm" class="input-material">
+									<input id="rto-pass-confirm" type="password" name="rto_pass_confirm" class="input-material" REQUIRED>
 									<label for="rto-pass-confirm" class="label-material">Enter Password to Confirm</label>
 								</div>
 								<div class="form-group" id="type-rto">
-									<input id="rto-type" type="text" name="type" class="input-material">
+									<input id="rto-type" type="text" name="type" class="input-material" REQUIRED>
 									<label for="rto-type" class="label-material">type</label>
 								</div>
 								<a id="rto-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">Registration</a>
@@ -183,11 +184,11 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 							<form id="insurance-form" method="post" action="registration.php">
 
 								<div class="form-group">
-									<input id="i-c-name" type="text" name="i_c_name" class="input-material">
-									<label for="i-c-name" class="label-material">Company Name</label>
+									<input id="i-c-name" type="text" name="i_c_name" class="input-material" REQUIRED>
+									<label for="i-c-name" class="label-material" REQUIRED>Company Name</label>
 								</div>
 								<div class="form-group">
-									<input id="i-c-u-name" type="text" name="rto_u_name" class="input-material">
+									<input id="i-c-u-name" type="text" name="rto_u_name" class="input-material" REQUIRED>
 									<label for="i-c-u-name" class="label-material">Enter Your Name</label>
 								</div>
 								<div class="form-group">
@@ -195,23 +196,23 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 									<label for="i-c-code" class="label-material">Company Rgistration Code</label>
 								</div>
 								<div class="form-group">
-									<input id="i-c-emailid" type="text" name="i_c_emailid" class="input-material">
+									<input id="i-c-emailid" type="text" name="i_c_emailid" class="input-material" REQUIRED>
 									<label for="i-c-emailid" class="label-material">Company Email ID</label>
 								</div>
 								<div class="form-group">
-									<input id="i-c-phone" type="text" name="i_c_phone" class="input-material">
+									<input id="i-c-phone" type="text" name="i_c_phone" class="input-material" REQUIRED>
 									<label for="i-c-phone" class="label-material">Company Phone Number</label>
 								</div>
 								<div class="form-group">
-									<input id="i-c-pass" type="password" name="i_c_pass" class="input-material">
+									<input id="i-c-pass" type="password" name="i_c_pass" class="input-material" REQUIRED>
 									<label for="i-c-pass" class="label-material">Enter Password</label>
 								</div>
 								<div class="form-group">
-									<input id="i-c-pass-confirm" type="password" name="i_c_pass-confirm" class="input-material">
+									<input id="i-c-pass-confirm" type="password" name="i_c_pass-confirm" class="input-material" REQUIRED>
 									<label for="i-c-pass-confirm" class="label-material">Enter Password to Confirm</label>
 								</div>
 								<div class="form-group" id="type-insurance">
-									<input id="insurance-type" type="text" name="type" class="input-material">
+									<input id="insurance-type" type="text" name="type" class="input-material" REQUIRED>
 									<label for="insurance-type" class="label-material">type</label>
 								</div>
 								<a id="insurance-reg" class="btn btn-primary" style="color: #fff; cursor: pointer;">registration</a>

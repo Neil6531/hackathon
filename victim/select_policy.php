@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <?php
-include('db_connect.php');
+include("../db_connect.php");
 session_start();
+$aadhar=$_POST['aadhar'];
+//echo($aadhar);
+$sql = "SELECT in_no,name,in_type,no_name,no_phone FROM insurance where aadhar_no='$aadhar'";
+//echo($sql);
+$result = mysqli_query($conn,$sql);
+
+//$row = mysqli_fetch_row($result);
 ?>
 
 <html>
@@ -47,33 +54,27 @@ session_start();
             </div>
             <!-- Form Panel    -->
             <div class="col-lg-6 bg-white" id="login-form">
-              <div class="form d-flex align-items-center">
-                <div class="content"><center><h2>Find insurance policy</h2></center><br><br>
-                  <form id="login-form" method="post" action="select_policy.php">
-                    <div class="form-group">
-                      <input id="claim_id" type="text" name="aadhar" class="input-material">
-                      <label for="login-username" class="label-material">Aadhar Number</label>
-                    </div>
-                    <input type="submit" value="Find" class="btn btn-primary">
-                  </form>
-                  <small>Do you have PRN to track </small><a role="button" class="signup" id="registration-button" style="cursor: pointer">Click Here</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 bg-white" id="registration-form">
-				<div class="form d-flex align-items-center">
-					<div class="content"><h2>Find Your PRN for track status of insurance claim</h2></center><br><br>
-						 <form id="login-form" method="post">
-							<div class="form-group">
-							  <input id="claim_id" type="text" name="claim_id" class="input-material">
-							  <label for="login-username" class="label-material">PRN Number</label>
-							</div>
-							<button class="btn btn-primary">Track</button>
-						  </form>
-							<small>To find insurance policy </small><a role="button" class="signup" id="login-button" style="cursor: pointer"> Click Here</a>
-					</div>
+            
+            <div class="data" style="padding: 50px;">
+					<?php 
+					while($row=mysqli_fetch_array($result)){
+					?>
+           		 <form id="login-form" method="post">
+					<strong>Policy No : </strong><?php  echo($row["in_no"]);?><br>
+				<strong>Name : </strong><?php echo($row["name"]);?><br>
+				<strong>Insurance Type : </strong><?php echo($row["in_type"]);?><br>
+				<strong>Nominee Name : </strong><?php echo($row["no_name"]);?><br>
+				<strong>Nominee Phone : </strong><?php echo($row["no_phone"]);}?>
+					
+				  </form>
+				  <form  id="claim_insert" method="post">
+				  <br><br>
+					<input type="text" placeholder="Enter FIR Number" id="fir_no">
+					<br><br>
+				  <input type="submit" name="claim"  value="Claim Insurance" class="btn btn-primary" id="submit_claim"/>
+				</form>
 				</div>
-			</div>
+            </div> 
           </div>
         </div>
       </div>
@@ -90,7 +91,23 @@ session_start();
 	<script>
 		$(document).ready(function(){
 			
+			
 			$("#loader").hide();
+			
+			$("#submit_claim").click(function(){
+				var f_no=$("#fir_no").val();
+				$.ajax({
+					type:"post",
+					url:"claim_insert.php",
+					data:"f_no="+f_no,
+					success:function(data)
+					{
+						
+					}
+					
+				});
+				
+			});
 		});
 	</script>
   </body>

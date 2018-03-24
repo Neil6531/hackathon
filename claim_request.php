@@ -155,162 +155,40 @@ echo ($_SESSION['org']); ?>
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">Add New Policy</h2>
+                            <h2 class="no-margin-bottom">New Claim Policy</h2>
                         </div>
                     </header>
-                    <!-- Dashboard Counts Section-->
-                    <section class="dashboard-counts no-padding-bottom">
-                        <div class="container-fluid">
-                           <div class="col-lg-12">
-            			      <div class="card">
-								<div class="card-header d-flex align-items-center">
-								  <h3 class="h4">Policy Form</h3>
-								</div>
-								<div class="card-body">
-								  <form class="form-horizontal">
-										
-										
-										<div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Insurance Number</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="in_no">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Aadhar Number</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="aadhar">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="name">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Address</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="in_address">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Email</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="mail">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Phone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="phone">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Date Of Birth</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="d_o_b">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-										  <label class="col-sm-3 form-control-label">Gender</label>
-										  <div class="col-sm-9 select">
-												<input type="text" class="form-control" id="gender">
-										  </div>
-										</div>
-										<div class="line"></div>
-                                        
-                                        <div class="form-group row">
-										  <label class="col-sm-3 form-control-label">Insurance Type</label>
-										  <div class="col-sm-9 select">
-											<select name="account" class="form-control" id="in_type">
-											  <option>Life Insurance</option>
-											  <option>Health Insurance</option>
-											  <option>Vehicle Insurance</option>
-											</select>
-										  </div>
-										</div>
-										<div class="line"></div>
-										  <div class="form-group row">
-										  <label class="col-sm-3 form-control-label">Nomi Type</label>
-										  <div class="col-sm-9 select">
-											<select name="account" class="form-control" id="no_type">
-											  <option >Father</option>
-											  <option>Mother </option>
-											  <option>Wife</option>
-											  <option>Child</option>
-											  <option>Other</option>
-											</select>
-										  </div>
-										</div>
-										<div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Nomini Aadhar Number</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="no_aadhar">
-                                            </div>
-                                        </div>
-											<div class="line"></div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Nomini Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="no_name">
-                                            </div>
-                                        </div>
-										<div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Nomini phone</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="no_phone">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Amount</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="amount">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 form-control-label">Police Expire Date</label>
-                                            <div class="col-sm-9">
-                                                <input type="date" class="form-control" id="exp_date">
-                                            </div>
-                                        </div>
-                                        <div class="line"></div>
-                                        
-                                        
-										
-										
-								  </form>
-								  
-								  <center>
-                                        <button id="reset_button" class="btn btn-secondary">Cancel</button>
-                                        <button id="submit_button" class="btn btn-primary">Save</button>
-                                    </center>
-								  
+                    
+                    <br>
+                    
+                    <section class="projects no-padding-top">
+						<div class="container-fluid">
+						  <!-- Project-->
+						  <div class="project">
+							<div class="row bg-white has-shadow">
+							  <div class="left-col col-lg-1 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4"><center>1.</center></h3>
+								  </div>
 								</div>
 							  </div>
-                		   </div>
-                        </div>
-                    </section>
-                    <br />
-                    <br />
+							  <div class="left-col col-lg-5 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4">Patel Meel Dhavalkumar</h3><small>Accident</small>
+								  </div>
+								</div>
+								<div class="project-date"><span class="hidden-sm-down">14/03/2018 @ 4:24 AM</span></div>
+							  </div>
+							  <div class="right-col col-lg-6 d-flex align-items-center">
+								<div class="comments"><i class="fa fa-map-pin"></i>R/32 Ambica Society, Nr Sarvoday School, Ahmedabad - 380026</div>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </section>
+                    <br /><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                
                     <footer class="main-footer">
                         <div class="container-fluid">

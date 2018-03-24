@@ -129,10 +129,10 @@ if($u_type == 'insurance'){$type=3;}
                     <ul class="list-unstyled">
                         <li class="active"> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
                         <li><a href="ins_new_policy.php"> <i class="icon-padnote"></i>New Policy</a></li>
-                        <li><a href=""> <i class="icon-padnote"></i>Find Policy</a></li>
-                        <li><a href=""> <i class="icon-padnote"></i>Claim Requst</a></li>
-                        <li><a href=""> <i class="icon-padnote"></i>View Response (FIR)</a></li>
-                        <li><a href=""> <i class="icon-padnote"></i>Process for claim</a></li>
+                        <li><a href="#"> <i class="icon-padnote"></i>Find Policy</a></li>
+                        <li><a href="claim_request.php"> <i class="icon-padnote"></i>Claim Requst</a></li>
+                        <li><a href="#"> <i class="icon-padnote"></i>View Response (FIR)</a></li>
+                        <li><a href="#"> <i class="icon-padnote"></i>Process for claim</a></li>
                     </ul>
                 </nav>
                 <div class="content-inner">
