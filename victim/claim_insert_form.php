@@ -2,12 +2,14 @@
 <?php
 include('../db_connect.php');
 session_start();
-
+$policy_no = $_GET['policy_no'];
 $sql = "SELECT p_s_name FROM police_station_location ORDER BY p_s_name";
 $result = mysqli_query($conn,$sql)or die(mysqli_error());
 
-$sql1 = "SELECT * FROM insurance";
+$sql1 = "SELECT * FROM insurance where in_no = '$policy_no'";
 $result1 = mysqli_query($conn,$sql1)or die(mysqli_error());
+$row1 = mysqli_fetch_array($result1);
+
 ?>
 
 
@@ -59,18 +61,18 @@ $result1 = mysqli_query($conn,$sql1)or die(mysqli_error());
                   <form id="login-form" method="post" action="select_policy.php">
                     
                     <div class="form-group">
-                      <input id="policy_no" type="text" name="policy_no" class="input-material">
+                      <input id="policy_no" type="text" name="policy_no" class="input-material" value="<?php echo($row1['in_no']); ?>">
                       <label for="policy_no" class="label-material">Policy Number</label>
                     </div>
                     
                     <div class="form-group">
-                      <input id="fir_no" type="text" name="fir_no" class="input-material">
+                      <input id="fir_no" type="text" name="fir_no" class="input-material" >
                       <label for="fir_no" class="label-material">FIR Number</label>
                     </div>
                     
                     <div class="form-group">
 						<label class="form-control-label">Select Police Station</label>
-						<select name="p-s-name" class="form-control col-sm-9" id="p-s-name" REQUIRED>
+						<select name="p-s-name" class="form-control col-sm-9" id="p_s_name">
 							<option>Select</option>
 							<?php
 							while($row = mysqli_fetch_array($result))
@@ -84,33 +86,32 @@ $result1 = mysqli_query($conn,$sql1)or die(mysqli_error());
 					</div>
                     
                     <div class="form-group">
-                      <input id="name" type="text" name="name" class="input-material">
+                      <input id="name" type="text" name="name" class="input-material" value="<?php echo($row1['name']); ?>">
                       <label for="name" class="label-material">Victim Name</label>
                     </div>
                     
                     <div class="form-group">
-                      <input id="no_name" type="text" name="no_name" class="input-material">
+                      <input id="no_name" type="text" name="no_name" class="input-material" value="<?php echo($row1['no_name']); ?>">
                       <label for="no_name" class="label-material">Nominee Name</label>
                     </div>
                     
                     <div class="form-group">
-                      <input id="no_phone" type="text" name="no_phone" class="input-material">
+                      <input id="no_phone" type="text" name="no_phone" class="input-material" value="<?php echo($row1['no_phone']); ?>">
                       <label for="no_phone" class="label-material">Nominee Phone</label>
                     </div>
                     
                     <div class="form-group">
-                      <input id="no_email" type="text" name="no_email" class="input-material">
+                      <input id="no_email" type="text" name="no_email" class="input-material" value="<?php echo($row1['email']); ?>">
                       <label for="no_email" class="label-material">Nomine Email</label>
                     </div>
                     
                     <div class="form-group">
-                      <input id="com_name" type="text" name="com_name" class="input-material">
+                      <input id="com_name" type="text" name="com_name" class="input-material" value="<?php echo($row1['com_name']); ?>">
                       <label for="com_name" class="label-material">Insurance Company Name</label>
                     </div>
                     
-                    
                   </form>
-                  <input type="submit" value="Find" class="btn btn-primary">
+                  <input type="submit" value="Submit Claim" class="btn btn-primary" id="submit_claim">
                 </div>
               </div>
             </div>
@@ -131,6 +132,30 @@ $result1 = mysqli_query($conn,$sql1)or die(mysqli_error());
 		$(document).ready(function(){
 			
 			$("#loader").hide();
+			$("#submit_claim").click(function(){
+				var policy_no = $("#policy_no").val();
+				var fir_no = $("#fir_no").val();
+				var p_s_name = $("#p_s_name").val();
+				var name = $("#name").val();
+				var no_name = $("#no_name").val();
+				var no_phone = $("#no_phone").val();
+				var no_email = $("#no_email").val();
+				var com_name = $("#com_name").val();
+				
+//				alert(policy_no+"  "+fir_no+"  "+p_s_name+"  "+name+"  "+no_name+"  "+no_phone+"  "+no_email+"  "+com_name);
+				
+				$.ajax({
+					type : "POST",
+					url : "insert_new_claim.php",
+					data : "policy_no="+policy_no+"&fir_no="+fir_no+"&p_s_name="+p_s_name+"&name="+name+"&no_name="+no_name+"&no_phone="+no_phone+"&no_email="+no_email+"&com_name="+com_name,
+					beforeSend :function(){
+						swal("Please Wait..!");	
+					},
+					success : function(data){
+						swal(data);
+					}
+				});
+			});
 		});
 	</script>
   </body>

@@ -169,6 +169,15 @@ echo ($_SESSION['org']); ?>
 								<div class="card-body">
 								  <form class="form-horizontal">
 										
+										<div class="form-group row">
+										  <label class="col-sm-3 form-control-label">Insurance Type</label>
+										  <div class="col-sm-9 select">
+											<select name="account" class="form-control" id="in_type">
+											  <option>Health Insurance</option>
+											  <option>Vehicle Insurance</option>
+											</select>
+										  </div>
+										</div>
 										
 										<div class="form-group row">
                                             <label class="col-sm-3 form-control-label">Insurance Number</label>
@@ -234,16 +243,6 @@ echo ($_SESSION['org']); ?>
 										</div>
 										<div class="line"></div>
                                         
-                                        <div class="form-group row">
-										  <label class="col-sm-3 form-control-label">Insurance Type</label>
-										  <div class="col-sm-9 select">
-											<select name="account" class="form-control" id="in_type">
-											  <option>Life Insurance</option>
-											  <option>Health Insurance</option>
-											  <option>Vehicle Insurance</option>
-											</select>
-										  </div>
-										</div>
 										<div class="line"></div>
 										  <div class="form-group row">
 										  <label class="col-sm-3 form-control-label">Nomi Type</label>
@@ -293,6 +292,61 @@ echo ($_SESSION['org']); ?>
                                             </div>
                                         </div>
                                         <div class="line"></div>
+                                        <div id="veh">
+											<div class="form-group row">
+													<label class="col-sm-3 form-control-label">Vehicle Number</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="veh_no">
+													</div>
+												</div>
+												<div class="line"></div>
+
+											<div class="col-sm-10 offset-3">
+
+													<div class="form-group row">
+														<label class="col-sm-3 form-control-label">Vehicle Type</label>
+														<div class="col-sm-8">
+															<input type="text" class="form-control" id="veh_type" readonly>
+														</div>
+													</div>
+													<div class="line"></div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 form-control-label">Vehicle Owner Name</label>
+														<div class="col-sm-8">
+															<input type="text" class="form-control" id="veh_owner" readonly>
+														</div>
+													</div>
+													<div class="line"></div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 form-control-label">Vehicle Owner Address</label>
+														<div class="col-sm-8">
+															<input type="text" class="form-control" id="veh_address" readonly>
+														</div>
+													</div>
+													<div class="line"></div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 form-control-label">Vehicle Engine Number</label>
+														<div class="col-sm-8">
+															<input type="text" class="form-control" id="veh_eng" readonly>
+														</div>
+													</div>
+													<div class="line"></div>
+
+													<div class="form-group row">
+														<label class="col-sm-3 form-control-label">Vehicle Chassis Number</label>
+														<div class="col-sm-8">
+															<input type="text" class="form-control" id="veh_cha" readonly>
+														</div>
+													</div>
+													<div class="line"></div>
+
+												</div>
+                                            </div>
+                                        
+                                        
                                         
                                         
 										
@@ -342,6 +396,14 @@ echo ($_SESSION['org']); ?>
                 $(document).ready(function() {
                     $("#loader").hide();
 					
+					
+					$("#veh").hide();
+					
+					$("#in_type").on('change',function(){
+						var type = $("#in_type").val();
+						if(type=="Vehicle Insurance"){$("#veh").show(500);}
+						else{$("#veh").hide(500);}
+					});
 					$("#aadhar").on('change',function(){
 						var aadhar = $("#aadhar").val();
 						$.ajax({
@@ -382,23 +444,29 @@ echo ($_SESSION['org']); ?>
 						var in_no = $("#in_no").val();
 						var name = $("#name").val();
 						var aadhar = $("#aadhar").val();
-						var email= $("#mail").val();
+						var email = $("#mail").val();
 						var phone = $("#phone").val();
-						var address= $("#in_address").val();
-						var d_o_b= $("#d_o_b").val();
-						var gender= $("#gender").val();
-						var in_type= $("#in_type").val();
-						var no_type= $("#no_type").val();
-						var no_aadhar= $("#no_aadhar").val();
-						var no_name= $("#no_name").val();
-						var no_phone= $("#no_phone").val();
-						var amount= $("#amount").val();
-						var exp_date= $("#exp_date").val();
+						var address = $("#in_address").val();
+						var d_o_b = $("#d_o_b").val();
+						var gender = $("#gender").val();
+						var in_type = $("#in_type").val();
+						var no_type = $("#no_type").val();
+						var no_aadhar = $("#no_aadhar").val();
+						var no_name = $("#no_name").val();
+						var no_phone = $("#no_phone").val();
+						var amount = $("#amount").val();
+						var exp_date = $("#exp_date").val();
+						var veh_no = $("#veh_no").val();
+						var veh_type = $("#veh_type").val();
+						var veh_own = $("#veh_owner").val();
+						var veh_own_add = $("#veh_address").val();
+						var veh_eng = $("#veh_eng").val();
+						var veh_ch_no= $("#veh_cha").val();
 						alert(in_no+"  "+name+"  "+aadhar+"  "+email+"  "+phone+"  "+address+"  "+d_o_b+"  "+gender+"  "+in_type+"  "+amount+"  "+exp_date);
 						$.ajax({
 							type: "POST",
 							url: "ins_new_policy_insert.php",
-							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&no_type="+no_type+"&no_aadhar="+no_aadhar+"&no_name="+no_name+"&no_phone="+no_phone+"&amount="+amount+"&exp_date="+exp_date,
+							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&no_type="+no_type+"&no_aadhar="+no_aadhar+"&no_name="+no_name+"&no_phone="+no_phone+"&amount="+amount+"&exp_date="+exp_date+"&veh_no="+veh_no+"&veh_type="+veh_type+"&veh_own="+veh_own+"&veh_own_add="+veh_own_add+"&veh_eng_no="+veh_eng+"&veh_ch_no="+veh_ch_no,
 							success:function(data){
 								if(data=="yes"){alert("Yes");}
 								else{alert("no");}
@@ -406,6 +474,24 @@ echo ($_SESSION['org']); ?>
 							}
 						});
 					});
+					
+					
+					$("#veh_no").on('change',function(){
+						$.ajax({
+							type: "POST",
+							url: "police_select_veh.php",
+							data: "veh_no=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#veh_type").val(data[0]);
+								$("#veh_owner").val(data[1]);
+								$("#veh_address").val(data[2]);
+								$("#veh_eng").val(data[3]);
+								$("#veh_cha").val(data[4]);
+							}
+						});
+					});
+					
                 });
             </script>
 			

@@ -150,10 +150,28 @@ $result = mysqli_query($conn,$sql)or die(mysqli_error());
 
 
 							<form id="rto-form" method="post" action="registration.php">
-								<div class="form-group">
-									<input id="rto-name" type="text" name="rto_name" class="input-material" REQUIRED>
-									<label for="rto-name" class="label-material">RTO Name</label>
+							
+								<?php
+									$sql = "SELECT name FROM rto";
+									//echo($sql);
+									$result = mysqli_query($conn,$sql)or die(mysqli_error());
+								?>
+								
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label">RTO Name</label>
+									<div class="col-sm-9 select">
+									<select  class="form-control" name="rto"  id="rto-name">
+									<?php
+											while($row = mysqli_fetch_array($result)){
+												 ?>
+									<option value="<?php echo($row['name'])?>"><?php echo($row['name'])?></option>
+									<?php }?>
+
+									</select>
+									</div>
+
 								</div>
+								
 								<div class="form-group">
 									<input id="rto-u-name" type="text" name="rto_u_name" class="input-material" REQUIRED>
 									<label for="rto-u-name" class="label-material">Enter Your Name</label>

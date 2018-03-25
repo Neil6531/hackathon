@@ -22,6 +22,10 @@ if($u_type == 'insurance'){$type=3;}
 	
 	$p_s_lat= $_SESSION['p_s_lat'];
 	$p_s_lng= $_SESSION['p_s_lng'];
+		
+	$sql = "SELECT name FROM rto";
+	//echo($sql);
+	$result = mysqli_query($conn,$sql)or die(mysqli_error());
 ?>
 <script>
 	
@@ -250,6 +254,30 @@ if($u_type == 'insurance'){$type=3;}
                                             </div>
                                         </div>
                                         <div class="line"></div>
+                                        
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-label">Vehicle No</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="v_no" >
+                                            </div>
+                                        </div>
+								
+										<div class="form-group row">
+											<label class="col-sm-3 form-control-label">RTO Name</label>
+											<div class="col-sm-9 select">
+											<select  class="form-control" name="rto"  id="rto">
+											<?php
+													while($row = mysqli_fetch_array($result)){
+														 ?>
+											<option value="<?php echo($row['name'])?>"><?php echo($row['name'])?></option>
+											<?php }?>
+
+											</select>
+											</div>
+
+										</div>
+                                        
 
                                         <br>
                                         <h3><strong>2. Place Of Occurrence</strong></h3>
@@ -527,11 +555,13 @@ if($u_type == 'insurance'){$type=3;}
                         var witness_address = $("#witness_address").val();
                         var witness_phone = $("#witness_phone").val();
                         var address_occurrence = $("#address_occurrence").val();
+						var v_no = $("#v_no").val();
+                        var rto = $("#rto").val();
 						
                         $.ajax({
                             type: "POST",
                             url: "insert_police_fir.php",
-                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_from_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone,
+                            data: "fir_no=" + fir_no + "&p_s_name=" + p_s_name + "&district=" + district + "&fir_date=" + fir_date + "&p_name=" + p_name + "&f_or_h_name=" + f_or_h_name + "&p_address=" + p_address + "&p_phone=" + p_phone + "&email=" + email + "&lat=" + lat + "&lng=" + lng + "&dist_from_p_s=" + dist_form_p_s + "&direction_from_p_s=" + direction_from_p_s + "&address_occurrence=" + address_occurrence + "&date_occurrence=" + date_occurrence + "&time_occurrence=" + time_occurrence + "&offence_nature=" + offence_nature + "&section=" + section + "&description=" + description + "&witness_name=" + witness_name + "&witness_address=" + witness_address + "&witness_phone=" + witness_phone+"&v_no="+v_no+"&rto="+ rto,
                             beforeSend: function(){
 								$("#loader").show(1000);
 							},
