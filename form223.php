@@ -201,8 +201,8 @@ vehicle? (This opinion to be expressed in fatal
 case only)</label>
                           <div class="col-sm-9 select">
                             <select  class="form-control" name="opinion"  id="opinion">
-								<option value='1'>Yes</option>
-								<option value='2'>No</option>
+								<option>Yes</option>
+								<option>No</option>
 							
                             </select>
                           </div>
@@ -212,8 +212,8 @@ case only)</label>
 							<label class="col-sm-3 form-control-label">Are registration and tax in order?</label>
                           <div class="col-sm-9 select">
                             <select  class="form-control" name="registration"  id="reg">
-								<option value='1'>Yes</option>
-								<option value='2'>No</option>
+								<option>Yes</option>
+								<option>No</option>
 							
                             </select>
                           </div>
@@ -223,8 +223,8 @@ case only)</label>
 							<label class="col-sm-3 form-control-label">is insurance in order?</label>
                           <div class="col-sm-9 select">
                             <select  class="form-control" name="insurance"  id="insurance">
-								<option value='1'>Yes</option>
-								<option value='2'>No</option>
+								<option>Yes</option>
+								<option>No</option>
 							
                             </select>
                           </div>
@@ -235,8 +235,8 @@ case only)</label>
 fitness and permit in order?</label>
                           <div class="col-sm-9 select">
                             <select  class="form-control" name="certificate"  id="certificate">
-								<option value='1'>Yes</option>
-								<option value='2'>No</option>
+								<option>Yes</option>
+								<option>No</option>
 							
                             </select>
                           </div>

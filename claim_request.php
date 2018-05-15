@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <?php
-include('db_connect.php');
+include 'db_connect.php';
 session_start();
 $a = isset($_SESSION["type"]);
 $u_type = ($_SESSION["type"]);
 $type = 0;
 
-$c_id = $_GET['c_id'];
-
-if ($u_type == 'police')
-{
-	$type = 1;
+if ($u_type == 'police') {
+    $type = 1;
 }
 
-if ($u_type == 'rto')
-{
-	$type = 2;
+if ($u_type == 'rto') {
+    $type = 2;
 }
 
-if ($u_type == 'insurance')
-{
-	$type = 3;
+if ($u_type == 'insurance') {
+    $type = 3;
 }
 
 $sql = "SELECT * FROM claim where status='0'";
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn, $sql);
 
 ?>
 <script>
@@ -150,9 +145,9 @@ echo ($_SESSION['org']); ?>
                     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                     <ul class="list-unstyled">
                         <li> <a href="police_index.php"><i class="icon-home"></i>Home</a></li>
-                        <li class="active"><a href="ins_new_policy.php"> <i class="icon-padnote"></i>New Policy</a></li>
+                        <li><a href="ins_new_policy.php"> <i class="icon-padnote"></i>New Policy</a></li>
                         <li><a href="#"> <i class="icon-padnote"></i>Find Policy</a></li>
-                        <li><a href="claim_request.php"> <i class="icon-padnote"></i>Claim Requst</a></li>
+                        <li class="active"><a href="claim_request.php"> <i class="icon-padnote"></i>Claim Requst</a></li>
                         <li><a href="#"> <i class="icon-padnote"></i>View Response (FIR)</a></li>
                         <li><a href="#"> <i class="icon-padnote"></i>Process for claim</a></li>
                     </ul>
@@ -164,20 +159,59 @@ echo ($_SESSION['org']); ?>
                             <h2 class="no-margin-bottom">New Claim Policy</h2>
                         </div>
                     </header>
-                    
+
                     <br>
-                    
+
                     <section class="projects no-padding-top">
 						<div class="container-fluid">
 						  <!-- Project-->
 						  <div class="project">
-							
-							
+							<?php
+$i = 0;
+while ($row = mysqli_fetch_array($result)) {
+    $i++;
+    ?>
+						  <div class="row bg-white has-shadow">
+
+							  <div class="left-col col-lg-1 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4"><center><?php echo ($i . "."); ?></center></h3>
+								  </div>
+								</div>
+							  </div>
+							  <div class="left-col col-lg-4 d-flex align-items-center justify-content-between">
+								<div class="project-title d-flex align-items-center">
+								  <div class="text">
+									<h3 class="h4"><?php echo ($row['name']) ?></h3><small>Policy No : <?php echo ($row['policy_no']) ?></small>
+								  </div>
+								</div>
+								<div class="project-date"><span class="hidden-sm-down"><?php echo ($row['no_name']) ?></span></div>
+							  </div>
+							  <div class="right-col col-lg-4 d-flex align-items-center">
+								<div class="comments"><i class="fa fa-map-pin"></i><?php echo ("Mo : " . $row['no_phone'] . " / Email :" . $row['no_mail']) ?></div>
+							  </div>
+							  <div class="right-col col-lg-2 d-flex align-items-center">
+							  	<a href="approve_mail.php?p_no=<?php echo ($row['policy_no'] . "&c_id=" . $row['c_id']) ?>" class="btn btn-sm btn-success">Approve</a><pre>  </pre>
+							  	<a href="reject_mail.php?p_no=<?php echo ($row['policy_no'] . "&c_id=" . $row['c_id']) ?>" class="btn btn-sm btn-danger">Reject</a>
+							  </div>
+							  <div class="right-col col-lg-1 d-flex align-items-center">
+								<div class="right-col col-lg-5 d-flex align-items-center">
+									<div class="dropdown">
+										<button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+										<div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow">
+										<a href="police_report.php?fir_no=<?php echo ($row['fir_no']) ?>" class="dropdown-item">Police Report</a>
+										<a href="rto_report.php?fir_no=<?php echo ($row['fir_no']) ?>" class="dropdown-item edit">RTO Report</a></div>
+									  </div>
+							  	</div>
+							  </div>
+							</div>
+							<?php }?>
+
 						  </div>
 						</div>
 					  </section>
-                    <br /><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-               
+
                     <footer class="main-footer">
                         <div class="container-fluid">
                             <div class="row">
@@ -204,14 +238,79 @@ echo ($_SESSION['org']); ?>
         <script src="js/front.js"></script>
         </script>
         <script>
-			
+
                 $(document).ready(function() {
                     $("#loader").hide();
+
+					$("#aadhar").on('change',function(){
+						var aadhar = $("#aadhar").val();
+						$.ajax({
+							type: "POST",
+							url: "ins_get_aadhar_data.php",
+							data: "aadhar=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#name").val(data[0]);
+								$("#in_address").val(data[1]);
+								$("#mail").val(data[2]);
+								$("#phone").val(data[3]);
+								$("#d_o_b").val(data[4]);
+								$("#gender").val(data[5]);
+							}
+						});
+					});
+
+
+					$("#no_aadhar").on('change',function(){
+						var aadhar = $("#no_aadhar").val();
+						$.ajax({
+							type: "POST",
+							url: "ins_get_aadhar_data1.php",
+							data: "no_aadhar=" + this.value,
+							dataType: "json",
+							success:function(data){
+								$("#no_name").val(data[0]);
+								$("#no_phone").val(data[1]);
+
+
+							}
+						});
+				});
+
+
+					$("#submit_button").click(function(){
+						var in_no = $("#in_no").val();
+						var name = $("#name").val();
+						var aadhar = $("#aadhar").val();
+						var email= $("#mail").val();
+						var phone = $("#phone").val();
+						var address= $("#in_address").val();
+						var d_o_b= $("#d_o_b").val();
+						var gender= $("#gender").val();
+						var in_type= $("#in_type").val();
+						var no_type= $("#no_type").val();
+						var no_aadhar= $("#no_aadhar").val();
+						var no_name= $("#no_name").val();
+						var no_phone= $("#no_phone").val();
+						var amount= $("#amount").val();
+						var exp_date= $("#exp_date").val();
+						alert(in_no+"  "+name+"  "+aadhar+"  "+email+"  "+phone+"  "+address+"  "+d_o_b+"  "+gender+"  "+in_type+"  "+amount+"  "+exp_date);
+						$.ajax({
+							type: "POST",
+							url: "ins_new_policy_insert.php",
+							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&no_type="+no_type+"&no_aadhar="+no_aadhar+"&no_name="+no_name+"&no_phone="+no_phone+"&amount="+amount+"&exp_date="+exp_date,
+							success:function(data){
+								if(data=="yes"){alert("Yes");}
+								else{alert("no");}
+
+							}
+						});
+					});
                 });
             </script>
-			
+
 		</script>
     </body>
 </html>
- 
+
 

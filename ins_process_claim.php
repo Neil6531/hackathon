@@ -6,6 +6,10 @@ $a = isset($_SESSION["type"]);
 $u_type = ($_SESSION["type"]);
 $type = 0;
 
+$c_id = $_GET['c_id'];
+
+
+
 if ($u_type == 'police')
 {
 	$type = 1;
@@ -21,9 +25,12 @@ if ($u_type == 'insurance')
 	$type = 3;
 }
 
-$sql = "SELECT * FROM claim where status='0'";
+$sql = "SELECT * FROM claim where c_id='$c_id'";
 $result = mysqli_query($conn,$sql);
-
+$row = mysqli_fetch_array($result);
+$sql1 = "SELECT * FROM hackathon2018.police_fir where fir_no='$fir_no'";
+$result1 = mysqli_query($conn,$sql1);
+$row2 = mysqli_fetch_array($result1);
 ?>
 <script>
 		var u_type = <?php
@@ -43,6 +50,8 @@ echo ($type) ?>;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/tab.min.css">
     <link rel="stylesheet" href="css/fontastic.css">
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
@@ -159,7 +168,7 @@ echo ($_SESSION['org']); ?>
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">New Claim Policy</h2>
+                            <h2 class="no-margin-bottom"></h2>
                         </div>
                     </header>
                     
@@ -199,7 +208,21 @@ echo ($_SESSION['org']); ?>
 						  </div>
 						</div>
 					  </section>
-                    <br /><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    
+                    
+                    <div class="ui top attached tabular menu">
+						<a class="item btn btn-primary" data-tab="first">First</a>
+						<a class="item btn btn-primary" data-tab="second">Second</a>
+					</div>
+					<div class="ui bottom attached tab segment active" data-tab="first">
+						First
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="second">
+						Second
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="third">
+						Third
+					</div>
                
                     <footer class="main-footer">
                         <div class="container-fluid">
@@ -209,7 +232,6 @@ echo ($_SESSION['org']); ?>
                                 </div>
                                 <div class="col-sm-6 text-right">
                                     <p>Design by Integration</p>
-                                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                                 </div>
                             </div>
                         </div>
@@ -225,76 +247,15 @@ echo ($_SESSION['org']); ?>
         <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
         <script src="js/Chart.min.js"></script>
         <script src="js/front.js"></script>
-        </script>
+        <script src="js/tab.min.js"></script>
         <script>
 			
                 $(document).ready(function() {
                     $("#loader").hide();
 					
-					$("#aadhar").on('change',function(){
-						var aadhar = $("#aadhar").val();
-						$.ajax({
-							type: "POST",
-							url: "ins_get_aadhar_data.php",
-							data: "aadhar=" + this.value,
-							dataType: "json",
-							success:function(data){
-								$("#name").val(data[0]);
-								$("#in_address").val(data[1]);
-								$("#mail").val(data[2]);
-								$("#phone").val(data[3]);
-								$("#d_o_b").val(data[4]);
-								$("#gender").val(data[5]);
-							}
-						});
-					});
-					
-              
-					$("#no_aadhar").on('change',function(){
-						var aadhar = $("#no_aadhar").val();
-						$.ajax({
-							type: "POST",
-							url: "ins_get_aadhar_data1.php",
-							data: "no_aadhar=" + this.value,
-							dataType: "json",
-							success:function(data){
-								$("#no_name").val(data[0]);
-								$("#no_phone").val(data[1]);
-								
-								
-							}
-						});
-				});
-					
-				 
-					$("#submit_button").click(function(){
-						var in_no = $("#in_no").val();
-						var name = $("#name").val();
-						var aadhar = $("#aadhar").val();
-						var email= $("#mail").val();
-						var phone = $("#phone").val();
-						var address= $("#in_address").val();
-						var d_o_b= $("#d_o_b").val();
-						var gender= $("#gender").val();
-						var in_type= $("#in_type").val();
-						var no_type= $("#no_type").val();
-						var no_aadhar= $("#no_aadhar").val();
-						var no_name= $("#no_name").val();
-						var no_phone= $("#no_phone").val();
-						var amount= $("#amount").val();
-						var exp_date= $("#exp_date").val();
-						alert(in_no+"  "+name+"  "+aadhar+"  "+email+"  "+phone+"  "+address+"  "+d_o_b+"  "+gender+"  "+in_type+"  "+amount+"  "+exp_date);
-						$.ajax({
-							type: "POST",
-							url: "ins_new_policy_insert.php",
-							data: "in_no="+in_no+"&name="+name+"&aadhar="+aadhar+"&email="+email+"&phone="+phone+"&address="+address+"&d_o_b="+d_o_b+"&gender="+gender+"&in_type="+in_type+"&no_type="+no_type+"&no_aadhar="+no_aadhar+"&no_name="+no_name+"&no_phone="+no_phone+"&amount="+amount+"&exp_date="+exp_date,
-							success:function(data){
-								if(data=="yes"){alert("Yes");}
-								else{alert("no");}
-								
-							}
-						});
-					});
+					$('.menu .item')
+					  .tab()
+					;
                 });
             </script>
 			

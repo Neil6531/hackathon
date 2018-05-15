@@ -17,7 +17,7 @@ else{ echo("No"); }
 
 //-------------------------------------------------mail------------------------------------------------
 
-require '../PHPMailer/PHPMailerAutoload.php';
+require 'PHPMailer/PHPMailerAutoload.php';
 
 
 $sql_s = "select * from claim where policy_no = '$policy_no'";
